@@ -1,0 +1,5 @@
+\select@language {czech}
+\contentsline {section}{\numberline {1}Konstrukce univerza}{4}
+\contentsline {subsection}{\numberline {1.1}Formalizace relace spl\v {n}ov\'{a}n\'{i}}{4}
+\contentsline {subsection}{\numberline {1.2}Funkce}{13}
+\contentsline {section}{Reference}{17}

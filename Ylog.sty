@@ -1,0 +1,110 @@
+%
+% Some macros from plain
+%
+\newskip\plaincentering \plaincentering=0pt plus 1000pt minus 1000pt
+\newcommand{\eqalign}[1]{\null\,\vcenter{\openup\jot\m@th
+  \ialign{\strut\hfil$\displaystyle{##}$&$\displaystyle{{}##}$\hfil
+      \crcr#1\crcr}}\,}
+\newcommand{\eqalignno}[1]{\displ@y \tabskip\plaincentering
+  \halign to\displaywidth{\hfil$\@lign\displaystyle{##}$\tabskip\z@skip
+    &$\@lign\displaystyle{{}##}$\hfil\tabskip\plaincentering
+    &\llap{$\@lign##$}\tabskip\z@skip\crcr
+    #1\crcr}}
+\newcommand{\leqalignno}[1]{\displ@y \tabskip\plaincentering
+  \halign to\displaywidth{\hfil$\@lign\displaystyle{##}$\tabskip\z@skip
+    &$\@lign\displaystyle{{}##}$\hfil\tabskip\plaincentering
+    &\kern-\displaywidth\rlap{$\@lign##$}\tabskip\displaywidth\crcr
+    #1\crcr}}
+%
+% \axlab and \ecr, in connection with \displaylines, is used to construct
+% lists of axioms
+%
+\newcommand{\axlab}[1]{\hbox to 45pt{#1\hfil}}%
+\newcommand{\ecr}{\hfill{}\cr\noalign{\vskip0pt plus1pt}}%
+%
+% Logical connectives
+%
+\newcommand{\propet}{\mathchar"2026 }%
+\newcommand{\propequiv}{\mathchar"2211 }%
+\newcommand{\propvel}{\mathchar"225F }%
+\newcommand{\propimpl}{\mathchar"2221 }%
+\newcommand{\predet}{\mathrel{\mskip\thinmuskip\mathchar"0026 \mskip\thinmuskip}}%
+\newcommand{\predequiv}{\mathrel{\mskip\thinmuskip\mathchar"0211 \mskip\thinmuskip}}%
+\newcommand{\predvel}{\mathrel{\mskip\thinmuskip\mathchar"025F \mskip\thinmuskip}}%
+\newcommand{\predimpl}{\mathrel{\mskip\thinmuskip\mathchar"0221 \mskip\thinmuskip}}%
+%
+\let\impl\predimpl
+\let\Et\predet
+\let\Vel\predvel
+\newcommand{\Equiv}{\mathrel{\mskip\thinmuskip\mathchar"022C \mskip\thinmuskip}}%
+\newcommand{\Impl}{\mathrel{\mskip\thinmuskip\mathchar"0229 \mskip\thinmuskip}}%
+\newcommand{\predspacing}{\def\et{\predet}\def\equiv{\predequiv}%
+            \def\vel{\predvel}\def\to{\predimpl}}%
+\newcommand{\propspacing}{\def\et{\propet}\def\equiv{\propequiv}%
+            \def\vel{\propvel}\def\to{\propimpl}}%
+\predspacing
+%
+% Other logic
+%
+\newcommand{\sqnt}[2]{\langle\,#1\,\Rightarrow\nobreak\,#2\,\rangle}%
+\newcommand{\notmodels}{\mathrel{\mathpalette\c@ncel\models}}%
+\newcommand{\forces}{\mathrel\parallel\joinrel\mathchar"3200 }%
+\newcommand{\notforces}{\mathrel{\mbox{$\forces\mkern-11mu%
+                             \mathrel{/}\mkern2mu$}}}%
+\newcommand{\idz}{\ensuremath{\sht{I}\Delta_0}}%
+\newcommand{\idzsupexp}{\ensuremath{\sht{I}\Delta_0{+}\sht{SupExp}}}%
+\newcommand{\idzexp}{\ensuremath{\sht{I}\Delta_0{+}\sht{Exp}}}%
+\newcommand{\idzomega}{\ensuremath{\sht{I}\Delta_0{+}\Omega_1}}%
+\newcommand{\isigma}[1]{\ensuremath{\sht{I}\Sigma_#1}}%
+\newcommand{\ipi}[1]{\ensuremath{\sht{I}\Pi_#1}}%
+\newcommand{\lsigma}[1]{\ensuremath{\sht{L}\Sigma_#1}}%
+\newcommand{\lpi}[1]{\ensuremath{\sht{L}\Pi_#1}}%
+\newcommand{\bsigma}[1]{\ensuremath{\sht{B}\Sigma_#1}}%
+\newcommand{\bpi}[1]{\ensuremath{\sht{B}\Pi_#1}}%
+\newcommand{\pa}{\ensuremath{\sht{PA}}}%
+\newcommand{\q}{\ensuremath{\sht{Q}}}%
+\newcommand{\intp}{\mathrel{\rhd}}
+\newcommand{\rpreceq}{\mathbin{\preceq}}
+\newcommand{\rprec}{\mathbin{\prec}}
+\newcommand{\rleq}[2]{\Box#1\rpreceq\nobreak\Box#2}
+\newcommand{\rless}[2]{\Box#1\rprec\nobreak\Box#2}
+\newcommand{\s}{\ensuremath{\sht{S}}}%
+%
+% Mathematical symbols
+%
+\newcommand{\ovl}[1]{\overline{#1}}%
+\newcommand{\unl}[1]{\underline{#1}}%
+\newcommand{\dotminus}{\mathbin{\textstyle{\textstyle.\over{\mbox{\hspace*{8pt}}}}}}%
+\newcommand{\algarrow}{\rightarrow}%
+\newcommand{\tdots}{\ensuremath{\mathinner{\ldotp\ldotp}}}%
+\newcommand{\conv}{\mathord!}%
+\newcommand{\exone}{\mathord{\exists\hspace{1pt}!\hspace{1pt}}}%
+\newcommand{\conc}{\mathord{{}^\frown}}
+% Bounded quantifiers
+\newcommand{\balt}[2]{\forall #1\mathord{\mkern1mu<\mkern1mu}#2\mkern2mu}%
+\newcommand{\bale}[2]{\forall #1\mathord{\mkern1mu\leq\mkern1mu}#2\mkern2mu}%
+\newcommand{\belt}[2]{\exists #1\mathord{\mkern1mu<\mkern1mu}#2\mkern2mu}%
+\newcommand{\bele}[2]{\exists #1\mathord{\mkern1mu\leq\mkern1mu}#2\mkern2mu}%
+%
+% In mathematical mode only:
+\newcommand{\set}[2]{\{\:#1\:;\:#2\:\}}%
+\newcommand{\image}[2]{{#1}^{\:\prime\prime}{#2}}%
+\newcommand{\abs}[1]{\mathopen|#1\mathclose|}%
+\newcommand{\Farrow}{\mathbin{\raisebox{.7pt}{$\scriptstyle\Rightarrow$}}}
+% In any mode:
+\newcommand{\mlist}[1]{\mbox{$\langle#1\rangle$}}%
+\newcommand{\bigoh}[1]{\ensuremath{\mathcal{O}(#1)}}%
+\newcommand{\sht}[1]{\ensuremath{\mathrm{#1}}}                  % shorthand
+\newcommand{\thy}[1]{\ensuremath{\mathsf{#1}}}                  % a theory
+\newcommand{\fla}[1]{\ensuremath{\mathsf{#1}}}                  % formal formula
+\newcommand{\ccl}[1]{\ifmmode\mbox{\slshape\mdseries\sffamily#1\/}%
+            \else\mbox{\slshape\mdseries\sffamily#1}\fi}        % complexity class
+%\newcommand{\probname}[1]{\mbox{\scshape\mdseries\rmfamily#1}}  % complexity problem
+\newcommand{\stru}[1]{\ensuremath{\mathbf{#1}}}%
+%
+% Hand-made itemization
+\newlength{\xmb}\newlength{\xmbx}\settowidth{\xmbx}{(b)}
+\newcommand{\mb}[1]{\settowidth{\xmb}{#1}%
+  \ifdim\xmb<\xmbx\xmb\xmbx\fi\advance\xmb\labelsep%
+  \makebox[\xmb][l]{#1}\ignorespaces}
+%

@@ -1,0 +1,147 @@
+\documentclass[12pt,a4paper]{article}
+% Pri pouziti masivnejsich fontu (pripad pana Jurenky) lze uzit mensi pismo:
+%\documentclass[11pt,a4paper]{article}
+%
+\usepackage{color} %pro barevné odkazy, pøíp. nadpisy
+\definecolor{odkazy}{rgb}{0.21,0.27,0.53} %tmavì modrá
+\definecolor{nadpisy}{rgb}{0.5812,0.0665,0.0659} %cihlová
+%
+% Volba pdf driveru:
+%\usepackage[dvipdfm]{hyperref}%
+%\usepackage[pdftex]{hyperref}%
+% Parametry prevodu do pdf
+\providecommand{\hypersetup}[1]{}%
+\hypersetup{%
+%unicode,% ? Pravdepodobne bezvyznamne
+pdfauthor={jméno autora},
+pdftitle={název práce},
+pdfsubject={subject práce},
+pdfkeywords={klicova slova},
+pdffitwindow=false,% Inicialni umisteni textu v okne Readeru
+bookmarksopen=true,% Panel zalozek inicialne zobrazen
+% Je-li tohle nastaveno jinak, nektere odkazy nekdy nefunguji
+hypertexnames=false,
+plainpages=false,
+%pdfpagelabels,
+%
+breaklinks=true,% Radkovy lom smi prijit do klikatelneho odkazu
+linkcolor=odkazy,% Graficka podoba odkazu
+citecolor=odkazy,% ...
+colorlinks=true,% ...
+pdfhighlight=/O% ... (vzhled odkazu pri stisknuti)
+}%
+% Inputenc je asi zbytecne.
+% Alespon v MikTeXu je kodovani lepsi specifikovat v prikazovem radku:
+%\usepackage[cp1250]{inputenc}
+% Option 'split' ovlivnuje deleni slov obsahujicich v sobe rozdelovnik
+\usepackage[czech]{babel} %dnes už je však hotová integrace èeštiny do babelu
+%\usepackage[split]{czech} %dnes už je však hotová integrace èeštiny do babelu
+%
+\usepackage{logdp} %užiteèné drobnosti
+\usepackage{amsthm} %lepší práce s vìtami
+\usepackage{amsmath} %nová prostøedí pro matematiku a vylepšení tìch stávajících
+\usepackage{latexsym,amsfonts,amssymb} %nová písmenka
+\usepackage{fancyhdr} %záhlaví a zápatí
+\usepackage[nottoc]{tocbibind} %pøidá do obsahu položky Literatura a Rejstøík
+%\usepackage{colorsection} %chcete-li barevné nadpisy,
+% (použije se barva z definice \definecolor{nadpisy})
+% Makra pro sazbu dukazu v gentzenovskem kalkulu vytvoril Sam Buss
+%\usepackage{bussproofs}
+
+% Zmena radkovani je uzitecna pri volbe masivnich fontu, viz vyse
+%\def\baselinestretch{1.2} %øádkování
+\pagestyle{plain}
+%pøedbìžné nastavení hlavièky (balík fancyhdr)
+%\headheight 13.6pt %možná ji bude tøeba zvednout, fancyhdr si pak stìžuje: \headheight
+% too small, make it at least Xpt
+\headheight 14.5pt %možná ji bude tøeba zvednout, fancyhdr si pak stìžuje: \headheight too \fancyhead{}
+\fancyhead[R]{\leftmark}
+\fancyfoot{}
+\fancyfoot[C]{\thepage}
+%
+\newtheorem{veta}{Vìta}%[subsection]
+\newtheorem{lemma}{Lemma}
+\newtheorem{tvrzeni}{Tvrzení}
+%a neèíslované varianty
+\newtheorem*{vetax}{Vìta}
+\newtheorem*{lemmax}{Lemma}
+\newtheorem*{tvrzenix}{Tvrzení}
+\theoremstyle{definition}
+\newtheorem*{definice}{Definice}
+%\usepackage{makeidx}
+%\makeindex %bude-li rejstøík
+\begin{document}
+%titulní stránka
+\begin{titlepage}
+%\fontsize{16.16pt}{25pt}\selectfont
+\Large
+\begin{center}
+Univerzita Karlova v~Praze, Filozofická fakulta\\
+Katedra logiky
+
+\vspace{8.5em}
+\textsc{Autor}\\[1.4em]
+{%\color{nadpisy} %pro pøíp. barevný název
+NÁZEV PRÁCE V~ÈESKÉM JAZYCE\\
+NÁZEV PRÁCE V~ANGLICKÉM JAZYCE}\\
+Diplomová práce\\[6.8em]
+Vedoucí práce: \\[6.8em]
+2007
+\end{center}
+\end{titlepage}\
+
+
+
+
+
+\vspace{\fill}
+\noindent Prohlašuji, že jsem diplomovou/bakaláøskou práci vypracoval/a samostatnì a~že jsem
+uvedl/a všechny použité prameny a~literaturu.
+
+\bigskip
+\noindent V~Praze 14.~dubna 2007\\[3em]
+\hspace*{\fill}Jméno autora\hspace*{3em}
+\clearpage
+
+\begin{abstract}
+\noindent Resumé práce v~èeském jazyce.
+\end{abstract}
+
+\bigskip
+\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+\noindent Resumé práce v~anglickém jazyce.
+\end{abstract}
+\clearpage
+
+\tableofcontents
+\clearpage
+
+
+\pagestyle{fancy} %detailní definice chování záhlaví
+\renewcommand{\sectionmark}[1]{\markboth{\slshape\thesection.\ #1}{}}
+\section{První oddíl}
+\subsection{První pododdíl}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur eu turpis vitae nisi pellentesque pharetra. Morbi vel lorem sit amet libero egestas cursus. Nulla facilisi. Nulla urna nulla, pellentesque ac, convallis ut, gravida et, nisl. Morbi in mauris et nunc lacinia dapibus. Nam lectus odio, malesuada non, sodales sed, tempor ultrices, mi. Donec commodo scelerisque nisi. Morbi mollis sapien a eros. Proin tincidunt mi. Nulla tincidunt venenatis augue. Morbi libero enim, elementum nec, pulvinar in, molestie sed, diam. Mauris massa tortor, bibendum in, suscipit et, rutrum nonummy, risus. Maecenas eget nisl vitae orci lobortis lobortis. Donec condimentum, nisi et mollis convallis, magna nulla scelerisque est, nec volutpat augue leo in justo. Nunc justo. In id nunc ac nulla lacinia iaculis.
+
+\begin{veta}[Pythagorova]\label{veta:Pythagorova}%\index{vìta!Pythagorova}
+\[  a^2 + b^2 = c^2\]
+\end{veta}
+
+\begin{proof} %prostøedí pro dùkazy z balíku amsthm
+Ponecháme na ètenáøi.
+\end{proof}
+
+\begin{definice}%\bfindex{Eigenvariable} %tuèná položka rejstøíku, viz balík vsehochut
+Pod pojmem \emph{Eigenvariable} rozumíme volnou promìnnou, pøes níž probíhá kvantifikace pøi užití pravidla generalizace.
+\end{definice}
+\par
+
+%
+%
+\clearpage\fancyhead[R]{\slshape\nouppercase{\leftmark}} %redefinice chování záhlaví pro stránky s literaturou, pøíp. s rejstøíkem
+\begin{thebibliography}{Gam06}
+\bibitem[Mor69]{Mordell} Mordell, Louis Joel. \textit{Diophantine Equations.} Academic Press, London, 1969.
+\end{thebibliography}
+%\printindex %bude-li rejstøík
+\end{document}

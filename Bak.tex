@@ -1,0 +1,149 @@
+\documentclass[12pt,a4paper]{article}
+% Pri pouziti masivnejsich fontu (pripad pana Jurenky) lze uzit mensi pismo:
+%\documentclass[11pt,a4paper]{article}
+%
+\usepackage{color} %pro barevné odkazy, pøíp. nadpisy
+\definecolor{odkazy}{rgb}{0.21,0.27,0.53} %tmavì modrá
+\definecolor{nadpisy}{rgb}{0.5812,0.0665,0.0659} %cihlová
+%
+% Volba pdf driveru:
+%\usepackage[dvipdfm]{hyperref}%
+%\usepackage[pdftex]{hyperref}%
+% Parametry prevodu do pdf
+\providecommand{\hypersetup}[1]{}%
+\hypersetup{%
+%unicode,% ? Pravdepodobne bezvyznamne
+pdfauthor={jméno autora},
+pdftitle={název práce},
+pdfsubject={subject práce},
+pdfkeywords={klicova slova},
+pdffitwindow=false,% Inicialni umisteni textu v okne Readeru
+bookmarksopen=true,% Panel zalozek inicialne zobrazen
+% Je-li tohle nastaveno jinak, nektere odkazy nekdy nefunguji
+hypertexnames=false,
+plainpages=false,
+%pdfpagelabels,
+%
+breaklinks=true,% Radkovy lom smi prijit do klikatelneho odkazu
+linkcolor=odkazy,% Graficka podoba odkazu
+citecolor=odkazy,% ...
+colorlinks=true,% ...
+pdfhighlight=/O% ... (vzhled odkazu pri stisknuti)
+}%
+% Inputenc je asi zbytecne.
+% Alespon v MikTeXu je kodovani lepsi specifikovat v prikazovem radku:
+%\usepackage[cp1250]{inputenc}
+% Option 'split' ovlivnuje deleni slov obsahujicich v sobe rozdelovnik
+\usepackage[czech]{babel} %dnes u je vak hotová integrace èetiny do babelu
+%\usepackage[split]{czech} %dnes u je vak hotová integrace èetiny do babelu
+%
+\usepackage{logdp} %uiteèné drobnosti
+\usepackage{amsthm} %lepí práce s vìtami
+\usepackage{amsmath} %nová prostøedí pro matematiku a vylepení tìch stávajících
+\usepackage{latexsym,amsfonts,amssymb} %nová písmenka
+\usepackage{fancyhdr} %záhlaví a zápatí
+\usepackage[nottoc]{tocbibind} %pøidá do obsahu poloky Literatura a Rejstøík
+%\usepackage{colorsection} %chcete-li barevné nadpisy,
+% (pouije se barva z definice \definecolor{nadpisy})
+% Makra pro sazbu dukazu v gentzenovskem kalkulu vytvoril Sam Buss
+%\usepackage{bussproofs}
+
+% Zmena radkovani je uzitecna pri volbe masivnich fontu, viz vyse
+%\def\baselinestretch{1.2} %øádkování
+\pagestyle{plain}
+%pøedbìné nastavení hlavièky (balík fancyhdr)
+%\headheight 13.6pt %moná ji bude tøeba zvednout, fancyhdr si pak stìuje: \headheight
+% too small, make it at least Xpt
+\headheight 14.5pt %moná ji bude tøeba zvednout, fancyhdr si pak stìuje: \headheight too \fancyhead{}
+\fancyhead[R]{\leftmark}
+\fancyfoot{}
+\fancyfoot[C]{\thepage}
+%
+\newtheorem{veta}{Vìta}%[subsection]
+\newtheorem{lemma}{Lemma}
+\newtheorem{tvrzeni}{Tvrzení}
+%a neèíslované varianty
+\newtheorem*{vetax}{Vìta}
+\newtheorem*{lemmax}{Lemma}
+\newtheorem*{tvrzenix}{Tvrzení}
+\theoremstyle{definition}
+\newtheorem*{definice}{Definice}
+%\usepackage{makeidx}
+%\makeindex %bude-li rejstøík
+\begin{document}
+%titulní stránka
+\begin{titlepage}
+%\fontsize{16.16pt}{25pt}\selectfont
+\Large
+\begin{center}
+Univerzita Karlova v Praze, Filozofická fakulta\\
+Katedra logiky
+
+\vspace{8.5em}
+\textsc{Michal Ketner}\\[1.4em]
+{%\color{nadpisy} %pro pøíp. barevný název
+Z\'{a}po\v{c}tov\'{a} cvi\v{c}en\'{i} a probl\'{e}my\\[6.8em]
+2015}
+\end{center}
+\end{titlepage}\
+
+\tableofcontents
+\clearpage
+
+
+
+
+
+
+
+\pagestyle{fancy} %detailní definice chování záhlaví
+\renewcommand{\sectionmark}[1]{\markboth{\slshape\thesection.\ #1}{}}
+\section{Cvi\v{c}en\'{i} 1 }
+\subsection{V\v{e}ta a}
+Vzpom\'{i}nka na tuto pohnutou ud\'{a}lost a osobn\'{i}  za\v{z}itek z jedine\v{c}n\'{e}ho rozhledu z vrcholku hory T\'{a}bor podn\'{i}tily patrn\v{e} obyvatele k tomu, \v{z}e dali po\v{r}\'{i}dit mapu zasl\'{i}ben\'{e}  zem\v{e} s jej\'{i}mi posv\'{a}tn\'{y}mi m\'{i}sty a z t\'{e}to ilustrace k Bibli si ud\v{e}lali zvl\'{a}\v{s}tn\'{i}  v\'{y}zdobu sv\'{e}  svatyn\v{e}.
+
+\begin{tabular}{|c||c||c|}
+\hline
+Morfologick\'{a} & Syntaktick\'{a} & S\'{e}mantick\'{a}\\
+\hline
+\hline
+Na  $ \rightarrow $ tuto & druhý & třetí \\
+\hline
+Na  $ \rightarrow $ pohnutou & druhý & třetí \\
+\hline
+Na  $ \rightarrow $ ud\'{a}lost & pé děgrám & uhusk flo z  \\
+\hline
+ud\'{a}lost  $ \rightarrow $ tuto & druhý & třetí \\
+\hline 
+ud\'{a}lost  $ \rightarrow $ pohnutou & udy vyz & ni zapust tiglidět \\
+\hline
+z\'{a}\v{z}itek $ \rightarrow $ osobn\'{i} & žlýr děh & Těč \\
+\hline
+Z  $ \rightarrow $ jedine\v{c}n\'{e}ho & druhý & třetí \\
+\hline
+Z  $ \rightarrow $ rozhledu & druhý & třetí \\
+\hline
+Rozhledu  $ \rightarrow $ jedine\v{c}n\'{e}ho & druhý & třetí \\
+\hline
+Z  $ \rightarrow $ vrcholku & druhý & třetí \\
+\hline
+vrcholku  $ \rightarrow $ hory & druhý & třetí \\
+\hline
+hory  $ \rightarrow $ T\'{a}bor & druhý & třetí \\
+\hline
+hor  $ \rightarrow $ T\'{a}bor & druhý & třetí \\
+\end{tabular}
+
+
+\begin{veta}[Pythagorova]\label{veta:Pythagorova}%\index{vìta!Pythagorova}
+\[  a^2 + b^2 = c^2\]
+\end{veta}
+
+\begin{proof} %prostøedí pro dùkazy z balíku amsthm
+Ponecháme na ètenáøi.
+\end{proof}
+
+\begin{definice}%\bfindex{Eigenvariable} %tuèná poloka rejstøíku, viz balík vsehochut
+Pod pojmem \emph{Eigenvariable} rozumíme volnou promìnnou, pøes ní probíhá kvantifikace pøi uití pravidla generalizace.
+\end{definice}
+\end{document}

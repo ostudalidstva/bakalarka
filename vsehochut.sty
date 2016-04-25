@@ -1,0 +1,63 @@
+\ProvidesPackage{vsehochut}
+\def\,{\kern .25em} %zúžená mezera o šíøèe ètvrt ètverèíku dle normy
+%pro sazbu formulí typu "A & B" jako $A \amp B$
+\DeclareSymbolFont{mojecmr}{OT1}{cmr}{m}{n}
+\DeclareMathSymbol{\amp}{\mathbin}{mojecmr}{38}
+%poèeštìní automaticky generovaných názvù prostøedí
+\renewcommand{\refname}{Literatura}
+\renewcommand{\indexname}{Rejstøík}
+\renewcommand{\abstractname}{Abstrakt}
+\renewcommand{\proofname}{Dùkaz}
+% teèka za èíslem kapitol v nadpisech dle èeských zvyklostí (napø. "2.1. Aplikace" místo "2.1 Aplikace")
+\renewcommand\@seccntformat[1]{\@nameuse{the#1}.\hspace{.5em}}
+% a totéž v toc
+\def\@sect#1#2#3#4#5#6[#7]#8{%
+  \ifnum #2>\c@secnumdepth
+    \let\@svsec\@empty
+  \else
+    \refstepcounter{#1}%
+    \protected@edef\@svsec{\@seccntformat{#1}\relax}%
+  \fi
+  \@tempskipa #5\relax
+  \ifdim \@tempskipa>\z@
+    \begingroup
+      #6{%
+        \@hangfrom{\hskip #3\relax\@svsec}%
+          \interlinepenalty \@M #8\@@par}%
+    \endgroup
+    \csname #1mark\endcsname{#7}%
+    \addcontentsline{toc}{#1}{%
+      \ifnum #2>\c@secnumdepth \else
+        \protect\numberline{\csname the#1\endcsname.}%
+      \fi
+      #7}%
+  \else
+    \def\@svsechd{%
+      #6{\hskip #3\relax
+      \@svsec #8}%
+      \csname #1mark\endcsname{#7}%
+      \addcontentsline{toc}{#1}{%
+        \ifnum #2>\c@secnumdepth \else
+          \protect\numberline{\csname the#1\endcsname.}%
+        \fi
+        #7}}%
+  \fi
+  \@xsect{#5}}
+% Zmìna øezu èísla stránky v rejstøíku pøi zachování hypertextu
+\newcommand*{\bfpnum}[1]{\textbf{\hyperpage{#1}}} 
+\newcommand*{\itpnum}[1]{\textit{\hyperpage{#1}}} 
+\newcommand*{\slpnum}[1]{\textsl{\hyperpage{#1}}} 
+
+\newcommand{\bfindex}[1]{\index{#1|bfpnum}} 
+\newcommand{\itindex}[1]{\index{#1|itpnum}} 
+\newcommand{\slindex}[1]{\index{#1|itpnum}}
+\newcommand{\exindex}[1]{\index{#1}}
+% Inteligentní pomlèka (pøíkaz "1\az2" se vysází jako "1--2", pokud by však u pomlèky mìlo dojít k øádkovému zlomu, vysází se "1 až 2")
+\def\az{\leavevmode
+	\null
+	\nobreak\ \skip0=\lastskip
+	\discretionary{až}{}{}%
+	\nobreak\hskip-\skip0
+	\setbox0=\hbox{--}%
+	\cleaders\copy0\hskip\wd0
+	\null}

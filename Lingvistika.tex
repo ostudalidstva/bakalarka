@@ -1,0 +1,435 @@
+\documentclass[12pt,a4paper]{article}
+% Pri pouziti masivnejsich fontu (pripad pana Jurenky) lze uzit mensi pismo:
+%\documentclass[11pt,a4paper]{article}
+%
+\usepackage{color} %pro barevné odkazy, pøíp. nadpisy
+\definecolor{odkazy}{rgb}{0.21,0.27,0.53} %tmavì modrá
+\definecolor{nadpisy}{rgb}{0.5812,0.0665,0.0659} %cihlová
+%
+% Volba pdf driveru:
+%\usepackage[dvipdfm]{hyperref}%
+%\usepackage[pdftex]{hyperref}%
+% Parametry prevodu do pdf
+\providecommand{\hypersetup}[1]{}%
+\hypersetup{%
+%unicode,% ? Pravdepodobne bezvyznamne
+pdfauthor={jméno autora},
+pdftitle={název práce},
+pdfsubject={subject práce},
+pdfkeywords={klicova slova},
+pdffitwindow=false,% Inicialni umisteni textu v okne Readeru
+bookmarksopen=true,% Panel zalozek inicialne zobrazen
+% Je-li tohle nastaveno jinak, nektere odkazy nekdy nefunguji
+hypertexnames=false,
+plainpages=false,
+%pdfpagelabels,
+%
+breaklinks=true,% Radkovy lom smi prijit do klikatelneho odkazu
+linkcolor=odkazy,% Graficka podoba odkazu
+citecolor=odkazy,% ...
+colorlinks=true,% ...
+pdfhighlight=/O% ... (vzhled odkazu pri stisknuti)
+}%
+% Inputenc je asi zbytecne.
+% Alespon v MikTeXu je kodovani lepsi specifikovat v prikazovem radku:
+%\usepackage[cp1250]{inputenc}
+% Option 'split' ovlivnuje deleni slov obsahujicich v sobe rozdelovnik
+\usepackage[czech]{babel} %dnes u je vak hotová integrace èetiny do babelu
+%\usepackage[split]{czech} %dnes u je vak hotová integrace èetiny do babelu
+%
+\usepackage{logdp} %uiteèné drobnosti
+\usepackage{amsthm} %lepí práce s vìtami
+\usepackage{amsmath} %nová prostøedí pro matematiku a vylepení tìch stávajících
+\usepackage{latexsym,amsfonts,amssymb} %nová písmenka
+\usepackage{fancyhdr} %záhlaví a zápatí
+\usepackage[nottoc]{tocbibind} %pøidá do obsahu poloky Literatura a Rejstøík
+%\usepackage{colorsection} %chcete-li barevné nadpisy,
+% (pouije se barva z definice \definecolor{nadpisy})
+% Makra pro sazbu dukazu v gentzenovskem kalkulu vytvoril Sam Buss
+%\usepackage{bussproofs}
+
+% Zmena radkovani je uzitecna pri volbe masivnich fontu, viz vyse
+%\def\baselinestretch{1.2} %øádkování
+\pagestyle{plain}
+%pøedbìné nastavení hlavièky (balík fancyhdr)
+%\headheight 13.6pt %moná ji bude tøeba zvednout, fancyhdr si pak stìuje: \headheight
+% too small, make it at least Xpt
+\headheight 14.5pt %moná ji bude tøeba zvednout, fancyhdr si pak stìuje: \headheight too \fancyhead{}
+\fancyhead[R]{\leftmark}
+\fancyfoot{}
+\fancyfoot[C]{\thepage}
+%
+\newtheorem{veta}{Vìta}%[subsection]
+\newtheorem{lemma}{Lemma}
+\newtheorem{tvrzeni}{Tvrzení}
+%a neèíslované varianty
+\newtheorem*{vetax}{Vìta}
+\newtheorem*{lemmax}{Lemma}
+\newtheorem*{tvrzenix}{Tvrzení}
+\theoremstyle{definition}
+\newtheorem*{definice}{Definice}
+%\usepackage{makeidx}
+%\makeindex %bude-li rejstøík
+\begin{document}
+%titulní stránka
+\begin{titlepage}
+%\fontsize{16.16pt}{25pt}\selectfont
+\Large
+\begin{center}
+Univerzita Karlova v Praze, Filozofická fakulta\\
+Katedra logiky
+
+\vspace{8.5em}
+\textsc{Michal Ketner}\\[1.4em]
+{%\color{nadpisy} %pro pøíp. barevný název
+Z\'{a}po\v{c}tov\'{a} cvi\v{c}en\'{i} a probl\'{e}my\\[6.8em]
+2015}
+\end{center}
+\end{titlepage}\
+
+\tableofcontents
+\clearpage
+
+
+
+
+
+
+
+\pagestyle{fancy} %detailní definice chování záhlaví
+\renewcommand{\sectionmark}[1]{\markboth{\slshape\thesection.\ #1}{}}
+\section{Cvi\v{c}en\'{i} 1 }
+\subsection{V\v{e}ta a}
+Vzpom\'{i}nka na tuto pohnutou ud\'{a}lost a osobn\'{i}  za\v{z}itek z jedine\v{c}n\'{e}ho rozhledu z vrcholku hory T\'{a}bor podn\'{i}tily patrn\v{e} obyvatele k tomu, \v{z}e dali po\v{r}\'{i}dit mapu zasl\'{i}ben\'{e}  zem\v{e} s jej\'{i}mi posv\'{a}tn\'{y}mi m\'{i}sty a z t\'{e}to ilustrace k Bibli si ud\v{e}lali zvl\'{a}\v{s}tn\'{i}  v\'{y}zdobu sv\'{e}  svatyn\v{e}.
+
+\textbf{Morfologick\'{a}} \\
+\begin{tabular}{|c||c|}
+\hline
+Na  $ \rightarrow $ ud\'{a}lost &  mapu $ \rightarrow  $ jej\'{i}mi \\
+\hline 
+Na  $ \rightarrow $ tuto  & s $ \rightarrow  $ jej\'{i}mi  \\
+\hline 
+Na  $ \rightarrow $ pohnutou &  s $ \rightarrow  $ posv\'{a}tnymi\\
+\hline 
+ud\'{a}lost  $ \rightarrow $ tuto & s $ \rightarrow  $ m\'{i}sty \\
+\hline 
+ud\'{a}lost  $ \rightarrow $ pohnutou & m\'{i}sty $ \rightarrow  $ jej\'{i}mi  \\
+\hline
+z\'{a}\v{z}itek $ \rightarrow $ osobn\'{i} & m\'{i}sty $ \rightarrow  $ posv\'{a}tnymi \\
+\hline
+Z  $ \rightarrow $ jedine\v{c}n\'{e}ho & z $ \rightarrow  $ ilustrace \\
+\hline
+Z  $ \rightarrow $ rozhledu & z $ \rightarrow  $ t\'{e}to \\
+\hline 
+Rozhledu  $ \rightarrow $ jedine\v{c}n\'{e}ho & k $ \rightarrow  $ Bibli \\
+\hline
+Z  $ \rightarrow $ vrcholku &  obyvatel\'{e} $ \rightarrow  $ ud\v{e}lali  \\
+\hline
+vrcholku  $ \rightarrow $ hory & ud\v{e}lali $ \rightarrow  $ v\'{y}zdobu \\
+\hline
+hory  $ \rightarrow $ T\'{a}bor & ud\v{e}lali $ \rightarrow  $ zvl\'{a}\v{s}tn\'{i} \\
+\hline
+vzpom\'{i}nka a z\'{a}\v{z}itek $ \rightarrow $ podn\'{i}tily & v\'{y}zdobu $ \rightarrow  $ zvl\'{a}\v{s}tn\'{i} \\
+\hline
+podn\'{i}tily  $ \rightarrow $ obyvatele &  v\'{y}zdobu $ \rightarrow  $ sv\'{e} \\
+\hline
+k  $ \rightarrow $ tomu & v\'{y}zdobu $ \rightarrow  $ svatyn\v{e}  \\
+\hline
+podn\'{i}tily  $ \rightarrow $ tomu & svatyn\v{e} $ \rightarrow  $ sv\'{e}  \\
+\hline
+obyvatele $ \rightarrow $ dali & mapu $ \rightarrow  $ zasl\'{i}ben\'{e} \\
+\hline
+dali $ \rightarrow $ po\v{r}\'{i}dit & mapu $ \rightarrow  $ zem\v{e} \\
+\hline
+po\v{r}\'{i}dit $ \rightarrow mapu $ & m\'{i}sty $ \rightarrow  $ posv\'{a}tnymi  \\
+\hline
+zem\v{e} $ \rightarrow  $ zasl\'{i}ben\'{e} & m\'{i}sty $ \rightarrow  $ jej\'{i}mi  \\
+\hline
+
+\end{tabular}
+
+\clearpage
+\textbf{Syntaktick\'{a}} \\
+\begin{tabular}{|c||c|}
+\hline
+podn\'{i}tily$ \rightarrow $vzpom\'{i}nka a z\'{a}\v{z}itek & k tomu $ \rightarrow $ \v{z}e dali po\v{r}\'{i}dit a ud\v{e}lali  \\
+\hline
+z\'{a}\v{z}itek $ \rightarrow $ osobn\'{i} & dali po\v{r}\'{i}dit  $ \rightarrow $ mapu \\
+\hline
+vzpom\'{i}nka $\rightarrow $ na  ud\'{a}lost &   mapu $ \rightarrow  $ zem\v{e} \\
+\hline
+ud\'{a}lost  $ \rightarrow $ tuto & zem\v{e} $ \rightarrow  $ zasl\'{i}ben\'{e}  \\
+\hline
+ud\'{a}lost  $ \rightarrow $ pohnutou & zem\v{e} $ \rightarrow  $ s m\'{i}sty  \\
+\hline
+z\'{a}\v{z}itek $ \rightarrow $ osobn\'{i} & podn\'{i}tily  $ \rightarrow $ patrn\v{e} \\
+\hline
+z\'{a}\v{z}itek   $ \rightarrow $ z rozhledu &  ud\v{e}lali $ \rightarrow $ z ilustrace\\
+\hline
+Rozhledu  $ \rightarrow $ jedine\v{c}n\'{e}ho  &  ilustrace $ \rightarrow $ t\'{e}to  \\
+\hline
+Rozhledu  $ \rightarrow $ z vrcholku &  ilustrace $ \rightarrow $ k Bibli  \\
+\hline
+vrcholku $ \rightarrow $ hory& ud\v{e}lali $ \rightarrow $ v\'{y}zdobu  \\
+\hline
+hory  $ \rightarrow $ T\'{a}bor  & v\'{y}zdobu $\rightarrow$ svatynv\'{e}  \\
+\hline
+podn\'{i}tily  $ \rightarrow $ obyvatele & svatyn\v{e} $\rightarrow$ sv\'{e}  \\
+\hline
+ podn\'{i}tily  $ \rightarrow $ k tomu & \\
+ \hline
+ \hline
+\end{tabular} \\
+
+\textbf{S\'{e}mantick\'{a}} \\
+\begin{tabular}{|c||c|} 
+\hline
+Na  $ \rightarrow $ ud\'{a}lost & zasl\'{i}ben\'{e} $ \rightarrow $ zem\v{e} \\ 
+\hline
+pohnutou $ \rightarrow $ ud\'{a}lost & mapu $ \rightarrow $ zem\v{e}  \\ 
+\hline
+ tuto $ \rightarrow $ ud\'{a}lost & s $ \rightarrow $ m\'{i}sty  \\ 
+\hline
+ osobn\'{i}  $ \rightarrow $ za\v{z}itek &  jej\'{i}mi $ \rightarrow $ m\'{i}sty \\
+\hline
+ z $ \rightarrow $  rozhledu & zasl\'{i}ben\'{y}mi $ \rightarrow $ m\'{i}sty  \\
+\hline
+ jedine\'{c}n\'{e}ho $ \rightarrow $  rozhledu  & z $ \rightarrow $ ilustrace \\
+\hline
+z $ \rightarrow $ vrcholku  & t\'{e}to $ \rightarrow $ ilustrace \\
+\hline
+podn\'{i}tily$ \rightarrow $vzpom\'{i}nka a z\'{a}\v{z}itek & k $ \rightarrow $ Bibli \\
+\hline
+ podn\'{i}tily  $ \rightarrow $ obyvatele & si ud\v{e}lali $ \rightarrow $ obyvatele \\
+\hline
+k $ \rightarrow $ tomu  & si ud\v{e}lali $ \rightarrow $ obyvatele \\
+\hline
+ dali po\v{r}\'{i}dit $ \rightarrow $ obyvatele  & zvl\'{a}\v{s}tn\'{i}$ \rightarrow $ v\'{y}zdobu\\
+\hline
+ dali po\v{r}\'{i}dit $ \rightarrow $ mapu & v\'{y}zdobu $ \rightarrow $ svatyn\v{e} \\
+\hline
+   & sv\'{e} $ \rightarrow $ svatyn\v{e} \\
+\hline
+\hline
+\end{tabular}
+\clearpage
+\subsection{V\v{e}ta b}
+Je to d\'{i}lo nepostradetln\'{e} pro v\v{s}echny proz\'{i}rav\'{e} a zv\'{i}dav\'{e} lidsk\'{e} mozky, v n\v{e}m\v{z} ka\v{z}d\'{y}, kdo miluje studium filosofie, perspektivy, malby, socha\v{r}stv\'{i}, architektury, hudby, a dal\v{s}\'{i}ch matematick\'{y}ch discipl\'{i}n, nalezne velmi jemn\'{e}, subtiln\'{i} a znamenit\'{e} pou\v{c}en\'{i} a tak\'{e} se pot\v{e}\v{s}\'{i} r\r{u}znorod\'{y}mi ot\'{a}zkami, je\v{z} se dot\'{y}kaj\'{i} velmi tajemn\'{y}ch v\v{e}domost\'{i}.
+
+\textbf{Morfologick\'{a}} \\
+\begin{tabular}{|c||c|}
+\hline
+d\'{i}lo $ \rightarrow $  nepostradetln\'{e} & studium $ \rightarrow  $  discipl\'{i}n \\
+\hline
+pro $ \rightarrow $  proz\'{i}rav\'{e} & studium $ \rightarrow  $  matematick\'{y}ch \\
+\hline
+pro $ \rightarrow $  zv\'{i}dav\'{e} & nalezne  $ \rightarrow $ jemn\'{e} \\
+\hline
+pro $ \rightarrow $  lidsk\'{e} & nalezne  $ \rightarrow $ subtiln\'{i} \\
+\hline
+pro $ \rightarrow $  mozky & nalezne  $ \rightarrow $ znamenit\'{e} \\
+\hline
+mozky $ \rightarrow $  proz\'{i}rav\'{e} & nalezne  $ \rightarrow $ pou\v{c}en\'{i} \\
+\hline
+mozky $ \rightarrow $  zv\'{i}dav\'{e} & ka\v{z}d\'{y}  $ \rightarrow $ se pot\v{e}\v{s}\'{i} \\
+\hline
+mozky $ \rightarrow $  lidsk\'{e} & se pot\v{e}\v{s}\'{i} $ \rightarrow $ r\r{u}znorod\'{y}mi \\
+\hline
+v $ \rightarrow $  n\v{e}m\v{z} & se pot\v{e}\v{s}\'{i} $ \rightarrow $ ot\'{a}zkami \\
+\hline
+ka\v{z}d\'{y}  $ \rightarrow $ nalezne & ot\'{a}zkami  $ \rightarrow $ r\r{u}znorod\'{y}mi \\
+\hline
+miluje $ \rightarrow $ studium & ot\'{a}zkami  $ \rightarrow $ je\v{z} \\
+\hline
+studium $ \rightarrow $ filosofie & dot\'{y}kaj\'{i}c\'{i} se $ \rightarrow $ v\v{e}domost\'{i} \\
+\hline
+studium $ \rightarrow $ perspektivy & dot\'{y}kaj\'{i}c\'{i} se $ \rightarrow $ tajemn\'{y}ch \\
+\hline
+studium $ \rightarrow $ perspektivy & v\v{e}domost\'{i}  $ \rightarrow $ tajemn\'{y}ch \\
+\hline
+studium $ \rightarrow $ malby & studium  $ \rightarrow $ socha\v{r}stv\v{i}\\
+\hline
+studium $ \rightarrow $ hudby & studium  $ \rightarrow $ dal\v{s}\'{i}ch \\
+\hline
+
+\end{tabular}
+
+\clearpage
+\textbf{Syntaktick\'{a}} \\
+\begin{tabular}{|c||c|}
+\hline
+je nepostradateln\'{y} $ \rightarrow $ d\'{i}lo & je nepostradateln\'{y} $ \rightarrow $ pro mozky \\
+\hline
+pro mozky $ \rightarrow $ v\v{s}echny  & pro mozky $ \rightarrow $ proz\'{i}rav\'{e}  \\
+\hline
+pro mozky $ \rightarrow $ lidsk\'{e}  & pro mozky $ \rightarrow $ zv\'{i}dav\'{e}   \\
+\hline
+d\'{i}lo $ \rightarrow $ v n\v{e}m\v{z} ka\v{z}d\'{y} nalezne a pot\v{e}\v{s}\'{i} se & miluje $ \rightarrow $ studium \\
+\hline
+ka\v{z}d\'{y} $ \rightarrow $ kdo miluje & studium $ \rightarrow $ filosofie \\
+\hline
+studium $ \rightarrow $ perspektivy & studium $ \rightarrow $ malby \\
+\hline
+studium $ \rightarrow $ socha\v{r}stv\v{i} & studium $ \rightarrow $ architektury \\
+\hline
+studium $ \rightarrow $ hudby & studium $ \rightarrow $ discipl\'{i}n \\
+\hline
+discipl\'{i}n $\rightarrow $ matematick\'{y}ch  & discipl\'{i}n $\rightarrow $ dal\v{s}\'{i}ch \\
+\hline
+nalezne $\rightarrow $ ponau\v{c}en\'{i} & ponau\v{c}en\'{i} $\rightarrow $ jemn\'{e} \\
+\hline
+ponau\v{c}en\'{i} $\rightarrow $ znamenit\'{e} & ponau\v{c}en\'{i} $\rightarrow $ subtiln\'{i} \\
+\hline
+jemn\'{e} $ \rightarrow $ velmi & pot\v{e}\v{s}\'{i} se $ \rightarrow $ tak\'{e} \\
+\hline
+ot\'{a}zkami $ \rightarrow $ r\r{u}znorod\'{y}mi & pot\v{e}\v{s}\'{i} se $\rightarrow $ ot\'{a}zkami \\ 
+\hline
+ot\'{a}zkami $ \rightarrow $ je\v{z} se dot\'{y}kaj\'{i} & dot\'{y}kaj\'{i} se $\rightarrow $ v\v{e}domost\'{i} \\
+\hline
+v\v{e}domost\'{i} $ \rightarrow $ tajemn\'{y}ch & tajemn\'{y}ch $\rightarrow $  velmi \\
+\hline
+\hline
+\end{tabular}
+\textbf{Semantick\'{a}} \\
+\begin{tabular}{|c||c|}
+\hline
+nepostradateln\'{e} $ \rightarrow $ d\'{i}lo & pro  $\rightarrow $ mozky \\
+\hline
+v\v{s}echny $ \rightarrow $ mozky & proz\'{i}rav\'{e} $ \rightarrow $ mozky \\
+\hline
+lidsk\'{e} $ \rightarrow $ mozky & zv\'{i}dav\'{e}  $\rightarrow $ mozky \\
+\hline
+matematick\'{y}ch $ \rightarrow $ discipl\'{i}n & dal\v{s}\'{i}ch $ \rightarrow $ discipl\'{i}n \\
+\hline
+nalezne $ \rightarrow $ pou\v{c}en\'{i} & jemn\'{e} $ \rightarrow $ pou\v{c}en\'{i} \\
+\hline
+subtiln\'{i} $ \rightarrow $ pou\v{c}en\'{i} & znamenit\'{e} $ \rightarrow $ pou\v{c}en\'{i} \\
+\hline
+nalezne $ \rightarrow $ ka\v{z}d\'{y} & se pot\v{e}\v{s}\'{i} $ \rightarrow $ ka\v{z}d\'{y} \\
+\hline
+r\r{u}znorod\'{y}mi $ \rightarrow $ ot\'{a}zkami & se pot\v{e}\v{s}\'{i} $ \rightarrow $ ot\'{a}zkami \\
+\hline
+dot\'{y}kaj\'{i} se $ \rightarrow $ ot\'{a}zkami & dot\'{y}kaj\'{i} se $ \rightarrow $ v\v{e}domosti \\
+\hline
+v $ \rightarrow $ n\v{e}m\v{z} & miluje $ \rightarrow $ ka\v{z}d\'{y} \\
+\hline
+miluje $ \rightarrow $ studium & \\
+
+\end{tabular}
+\clearpage
+\section{Cvi\v{c}en\'{i} 2 }
+z\'{a}pis bude rozd\v{e}len\'{y} na morf\'{e}my a dopln\v{e}n s\'{e}maty v z\'{a}vorce \\
+p\'{a}dov\'{y} synkretismus je odd\v{e}len * \\
+slovn\v{e}druhov\'{a} mnohozna\v{c}nost / \\
+\subsection{V\v{e}ta a}
+=Vzpom\'{i}n=k=a (substantivum, femin; sg ;1.p.) \\
+=na=== (p\v{r}edlo\v{z}ka, se 4.p.*6.p.) \\
+=t=uto (z\'{a}jmn\'{e}no ukazovac\'{i}, femin.; sg ; 4.p.) \\
+=pohnut==ou= (adjectivum, femi.; sg; 4.p*7.p) \\
+=ud\'{a}lost===(substantivum, fem; sg; 1.p.*4.p.) \\
+=a===(spojka/ \v{c}\'{a}stice) \\
+=osobn=\'{i}==(adjectivum, [mas. l ; [sg; 1.p.*4.p], [pl;1.p*.4.p*5.p]]; 
+[mas n, [sg;1.p*.4.p*5.p],[pl;1.p*.4.p*5.p]] 
+[femin, [sg;1-*7.p.];[pl;1.p*.4.p*5.p]] 
+[neu., [[sg;1.p*.4.p*5.p],[pl;1.p*.4.p*5.p]] \\
+=z\'{a}\v{z}it=ek==(substantivum, mas n ; sg; 1.p.*4.p)\\
+=z===(p\v{r}edlo\v{z}ka, se 2.p)\\
+=jedine\v{c}n==\'{e}ho=(adjectivum, mas.; sg; 2.p.*4.p.) \\
+=rozhled==u=(substantivum, mas; sg; 2.p.*3.p*6.p)\\
+=vrchol=k=u=(substantivum, mas; sg; 2.p.*3.p*5.p*6.p)\\
+=ho=r=y=(substantivum, femin.[sg;2.p],[pl;1.p*4.p*5.p])\\
+=T\'{a}bo=r==(vlast.jmen./substantivum, mas n; sg;1.p.*4.p.) \\
+=podn=\'{i}til=y(verb, 3.os;pl; act;oznam) \\
+=patrn\v{e}===(p\v{r}\'{i}slovce) \\
+=obyvatel==e=(substantivum,[mas l.;[sg;2.p*4.p],[pl;4.p.]]) \\
+=k===(p\v{r}edlo\v{z}ka) \\
+=t=omu=(z\'{a}jmn\'{e}no ukazovac\'{i},[[neu.;sg;3.p],[mas. l.;sg;3.p],[mas. n.;sg;3.p]] \\
+=\v{z}e===(spojka/ \v{c}\'{a}stice) \\
+=d=al=i=(verb,3.os;pl;act;oznam;) \\
+=po\v{r}=\'{i}di=t=(verb,infinitiv) \\
+=map==u=(substantivum, fem,sg,4.p) \\
+=zasl\'{i}ben==\'{e}=(adjectivum,[[fem;[sing,[2.p*3.p*6.p]],[pl,[2.p*3.p*5.p]]],[mas l;pl,4.p],[mas n;[pl,[2.p*3.p*5.p]]], [neu,[sg,[2.p*3.p*5.p]]]) \\
+=zem==\v{e}=(substantivum,fem;[sg,[2.p*5.p]],[pl,[1.p.*4.p*5.p.]]) \\
+=s===p\v{r}edlo\v{z}ka) \\
+=jej\'{i}=mi==(z\'{a}jmn\'{e}no p\v{r}ivlas.,pl;7.p; v\v{s}echny rody) \\
+=posv\'{a}tn==\'{y}mi=(adjectivum,pl;7.p; v\v{s}echny rody) \\
+=m\'{i}st==y=(substantivum,neu;pl.;7.p./(p\v{r}\'{i}slovce) \\
+=a===(spojka/ \v{c}\'{a}stice) \\
+=z===(p\v{r}edlo\v{z}ka, se 2.p)\\
+=t=\'{e}to==(z\'{a}jmn\'{e}no ukazovac\'{i},fem;sg.;2.p.*3.p.*6.p.) \\
+=ilustrac==e=(substantivum,fem;[sg;1.p.*5.p],[pl;1.p.*4.p.*5.p.] )\\
+=k===(p\v{r}edlo\v{z}ka se 3.p)\\
+=Bibl==i=(vlast.jmen./substantivum;fem;sg.;3.p*4.p*6.p) \\
+=s=i==(z\'{a}jmn\'{e}no  zvrat.) \\
+=ud\v{e}l=al=i=(verb, 3.os,pl, ozn,acti) \\
+=zvl\'{a}\v{s}t=n\'{i}==(adjectivum, [mas. l ; [sg; 1.p.*4.p], [pl;1.p*.4.p*5.p]]; 
+[mas n, [sg;1.p*.4.p*5.p],[pl;1.p*.4.p*5.p]] 
+[femin, [sg;1-*7.p.];[pl;1.p*.4.p*5.p]] 
+[neu., [[sg;1.p*.4.p*5.p],[pl;1.p*.4.p*5.p]] )\\
+=v\'{y}zdob==u=(substantivum,fem;sg.;4.p) \\
+=sv=\'{e}==(z\'{a}jmn\'{e}no  p\v{r}ivlas. [fem;[sing,[2.p*3.p*6.p]],[pl,[2.p*3.p*5.p]]],[mas l;pl,4.p],[mas n;[pl,[2.p*3.p*5.p]]], [neu,[sg,[2.p*3.p*5.p]]] ) \\
+svaty=n=\v{e}=(substantivum,fem;[sg,[1.p.*2p.*5.p]],[pl,[1.p*4.p*5.p]]) \\
+\clearpage
+\subsection{V\v{e}ta b}
+==je==(verb, 3.os. sg, act, ozn/zajm. pl; 4.p.; vsech.rody,sg; 4.p.) \\
+=t=o==(z\'{a}jmn\'{e}no ukazovac\'{i}, neu.;sg;1.p*4.p/\v{c}\'{a}stice) 
+=d\'{i}l=o=(substantivum,neu;sg;1.p*4.p*5.p) \\
+ne=postradteln==\'{e}=(adjectivum, [fem;[sing,[2.p*3.p*6.p]],[pl,[2.p*3.p*5.p]]],[mas l;pl,4.p],[mas n;[pl,[2.p*3.p*5.p]]], [neu,[sg,[2.p*3.p*5.p]]])\\
+=pro===(p\v{r}edlo\v{z}ka, se 4.p)\\
+=v\v{s}=echny==(z\'{a}jmeno,[mas. l.;pl;4p],[mas n.;pl;[1.p*4.p.]],[fem.;pl;[1.p*4.p.]] \\
+=proz\'{i}rav==\'{e}=(adjectivum, [fem;[sing,[2.p*3.p*6.p]],[pl,[2.p*3.p*5.p]]],[mas l;pl,4.p],[mas n;[pl,[2.p*3.p*5.p]]], [neu,[sg,[2.p*3.p*5.p]]])\\
+=a===(spojka/ \v{c}\'{a}stice) \\
+=zv\'{i}dav==\'{e}=(adjectivum, [fem;[sing,[2.p*3.p*6.p]],[pl,[2.p*3.p*5.p]]],[mas l;pl,4.p],[mas n;[pl,[2.p*3.p*5.p]]], [neu,[sg,[2.p*3.p*5.p]]])\\
+=lid=sk=\'{e}=(adjectivum, [fem;[sing,[2.p*3.p*6.p]],[pl,[2.p*3.p*5.p]]],[mas l;pl,4.p],[mas n;[pl,[2.p*3.p*5.p]]], [neu,[sg,[2.p*3.p*5.p]]])\\
+=moz=k=y=(substantivum,mas;pl;1.p.*4.p.*5.p*.7.p) \\
+=v=== (p\v{r}edlo\v{z}ka, se 4.p.*6.p.) \\
+==n\v{e}m\v{z}==(z\'{a}jmn\'{e}no  vzta.,sg;6.p:fem,mus l,mus n.) \\
+=ka\v{z}d=\'{y}==(z\'{a}jmeno; sg; [mus l.;1.p],[mus n.;1.p*4.p]) \\
+=k=do== (z\'{a}jmeno;sg;1.p) \\
+=mil=uje==(verb,3.os sg, actv, oznamovaci,) \\
+=studi=um==(ssubstantivum,neo;sg;1.p.*4.p.*5.p.) \\
+=filosofi==e=(substantivum,fem;[sg;1.p.*5.p],[pl;1.p.*4.p.*5.p.] )\\
+=perspektiv==y=(substantivum, femin.[sg;2.p],[pl;1.p*4.p*5.p])\\
+=mal=b=y=(substantivum, femin.[sg;2.p],[pl;1.p*4.p*5.p])\\ 
+=architektu=r=y=(substantivum, femin.[sg;2.p],[pl;1.p*4.p*5.p])\\
+=hud=db=y=(substantivum, femin.[sg;2.p],[pl;1.p*4.p*5.p])\\
+=socha\v{r}stv\'{i}==(substantivum,neu;[sg,1.p.-*6.p.],[pl,1.p.*2.p.*4.p.*5.p.]) \\
+=a===(spojka/ \v{c}\'{a}stice) \\
+=dal\v{s}==\'{i}ch=( adjektivum,pl;2.p.*6.p.v\v{s}echny rody) \\
+=matemati=ck=\'{y}ch=(adjektivum,pl;2.p.*6.p.v\v{s}echny rody) \\
+=discipl\'{i}n===(sunstantivum,fem,pl;2.p.) \\
+=nalez=ne==(verb,3.os; sg.;oznam., act.)
+=velmi===(p\v{r}\'{i}slovce) \\
+=jemn==\'{e}=(adjectivum, [fem;[sing,[2.p*3.p*6.p]],[pl,[2.p*3.p*5.p]]],[mas l;pl,4.p],[mas n;[pl,[2.p*3.p*5.p]]], [neu,[sg,[2.p*3.p*5.p]]])\\
+=znamenit==\'{e}=(adjectivum, [fem;[sing,[2.p*3.p*6.p]],[pl,[2.p*3.p*5.p]]],[mas l;pl,4.p],[mas n;[pl,[2.p*3.p*5.p]]], [neu,[sg,[2.p*3.p*5.p]]])\\
+=a===(spojka/ \v{c}\'{a}stice) \\
+=subtiln=\'{i}==(adjectivum, [mas. l ; [sg; 1.p.*4.p], [pl;1.p*.4.p*5.p]]; \\
+=pou\v{c}en\'{i}==(substantivum,neu;[sg,1.p.-*6.p.],[pl,1.p.*2.p.*4.p.*5.p.]) \\
+=a===(spojka/ \v{c}\'{a}stice) \\
+=tak\'{e}===(p\v{r}\'{i}slovce/\v{c}\'{a}stice/z\'{a}jm\'{e}no [fem;[sing,[2.p*3.p*6.p]],[pl,[2.p*3.p*5.p]]],[mas l;pl,4.p],[mas n;[pl,[2.p*3.p*5.p]]], [neu,[sg,[2.p*3.p*5.p]]])) \\
+=s=e==(z\'{a}jm\'{e}no / p\v{r}edlo\v{z}ka) \\
+=pot\v{e}\v{s}\'{i}(verb,3.os;act;oznamoc;sg,pl)
+=r\r{u}znorod==\'{y}mi=(adjectivum,pl;7.p; v\v{s}echny rody) \\
+=ot\'{a}z=k-ami=(substantivum,fem., pl.7.p) \\
+==je\v{z}==(zajmeno vzta\v{z}n\'{e},[fem;sg;1.p.],[neut;sg;1.p.*4p.],[mus l. ;sg;4.p],[ostat.rody.;pl;1.p.*4.p.]/verb,2.os;pl;act;rozkaz)
+=s=e==(zvratn. zajm/predl se 7.p) \\
+=dot\'{y}k=aj=\'{i}=(verb,3.os;pl,sg:act.oznamavaci) \\
+=velmi===(p\v{r}\'{i}slovce) \\
+=tajemn==\'{y}ch=(adjektivum,pl;2.p.*6.p.v\v{s}echny rody) \\
+=v\v{e}domost==\'{i}=(substantivum, fem;[sg,7.p],[pl,2.p.]) \\
+\clearpage
+\section{Cvi\v{c}en\'{i} 5 }
+prvni v\v{e}ta je typ S6 Kombinace neprojektivn\'{i}ch konstrukc\'{i} v jedn\'{e} klauzuli \\
+druh\'{a} v\v{e}ta je typ S2 syntagma \\
+\section{Cvi\v{c}en\'{i} 7 }
+1.v\v{e}ta Jemn\v{e} pohladil Frant\'{i}kovy/i vlasy. \\
+2.v\v{e}ta Vid\v{e}l mu\v{z}e. \\
+3.v\v{e}ta \v{C}ekal na let. \\
+4.v\v{e}ta Ko\v{c}ka je \v{s}pinav\'{a} a l\'{i}n\'{a}. \\
+5.v\v{e}ta B\'{y}/\'{i}t v\v{e}tv\'{i}. \\
+
+
+
+
+\end{document}
+
