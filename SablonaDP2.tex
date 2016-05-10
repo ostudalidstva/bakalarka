@@ -125,13 +125,13 @@ uvedl  v\v{s}echny pou\v{z}it\'{e} prameny a literaturu.
 
 \pagestyle{fancy} %detailní definice chování záhlaví
 \renewcommand{\sectionmark}[1]{\markboth{\slshape\thesection.\ #1}{}}
-\section{Konstrukce univerza}
+\section{Konstrukce univerza} \label{sec:konstrukce}
 \subsection{Formalizace relace spl\v{n}ov\'{a}n\'{i}}
 V t\'{e}to \v{c}\'{a}sti se budem v\v{e}novat konstrukci univerza $\mathbb{L}$ uvnit\v{r} teorie mno\v{z}in. Konstruktivn\'{i} universum, zde bude vytvo\v{r}eno pomocí formalizace logiky uvnit\v{r} teorie mno\v{z}in . 
 
 Nejd\v{r}\'{i}ve si uka\v{z}eme, \v{z}e si vysta\v{c}\'{i}me jen se symboly pro konjunci($ \wedge $), negaci ($ \neg $) a existen\v{c}n\'{i} kvantifik\'{a}tor ($ \exists $).
 
-\begin{veta}%\bfindex{Logick\'{a} ekvivalence}
+\begin{veta}%\bfindex{Logick\'{a} ekvivalence} 
 \textbf{Logick\'{a} ekvivalence \\ }
 Nech\v{t} m\'{a}me formule $ \psi $ a $ \phi $. Pak plat\'{i} n\'{a}sleduj\'{i}c\'{i} ekvivalence:
 \[ a) \psi \vee \phi  \equiv	\neg (\neg \psi \wedge \neg \phi) \]  
@@ -184,26 +184,29 @@ Nech\v{t} tedy plat\'{i} p\v{r}edpoklad  \[ \neg \forall x  \psi(x) \]
  jinak je implikace trivi\'{a}ln\v{e} spln\v{e}na. Z toho dost\'{a}v\'{a}me,\v{z}e existuje prvek a struktury pro kter\'{y} platí 
  \[  \neg \psi(x)  \] 
  a z toho tedy plyne z\'{a}v\v{e}r. Q.E.D.
-\end{veta}
+\end{veta} \label{vet:ekvivalence}
 D\'{a}le si nadefinujeme a uk\'{a}\v{z}eme relativizaci formul\'{i} proto abychom ji pot\'{e} mohli pou\v{z}\'{i}t pro formalizaci relace spl\v{n}ov\'{a}n\'{i}.
 \begin{definice}%\bfindex{Notace}
-\textbf{Relativizace}
+\textbf{Relativizace \\}
 Nech\v{t} $ \mathcal{M} $ je t\v{r}\'{i}da, pak pro n\v{e}jakou formuli $ \phi $ v definujme indukc\'{i} $ \phi^{ \mathcal{M}} $ jako relativizaci $ \phi $ v $ \mathcal{M} $ \\
 \[ a) (x=y)^{ \mathcal{M}} ~~~ jako ~~~ x=y  \]
 \[ b) (x \in y)^{ \mathcal{M}} ~~~ jako  ~~~ x \in y  \]
 \[ c) (\psi \wedge \lambda )^{ \mathcal{M}}  ~~~ jako ~~~  \psi^{ \mathcal{M}}  \wedge  \lambda^{ \mathcal{M}} \]
 \[d)(\neg \psi)^{ \mathcal{M}} ~~~ jako ~~~ \neg (\psi)^{ \mathcal{M}}  \]
 \[e) (\exists \psi)^{ \mathcal{M}} ~~~ jako ~~~ \exists x ( x \in \mathcal{M} \wedge (\psi)^{ \mathcal{M}} ) \] 
-\end{definice}
+\label{def:relat}
+\end{definice} 
 
 Zavedeme si Quinovu rohovovou notaci a pomoc\'{i} n\'{i} si obohat\'{i}me teorii.
 
 \begin{definice}%\bfindex{Notace}
 \textbf{Quinova rohovov\'{a} notace \\ }
 Nech\v{t} Ob n\v{e}jak\'{y} objekt v metateorii, tak $ \left\ulcorner  Ob\right\urcorner$ je konstanta, kter\'{a} zna\v{c}\'{i}, \v{z}e jsme teorii roz\v{s}\'{i}\v{r}ili o form\'{a}ln\'{i} definici Ob 
+ \label{def:notace}
 \end{definice}
 
 \begin{lemma}
+~\\
 Pro libovolnou formuli $ \psi(x_0,..,x_{n-1}) $ \\
 \[ \mathrm{ZF}\vdash \forall \langle M,\in \rangle  \forall x_0,..,x_{n-1} ( \psi^{M}(x_0,..,x_{n-1}) \Leftrightarrow \langle M,\in \rangle  \vDash \left\ulcorner \psi \right\urcorner[\langle x_0,..,x_{n-1})\rangle ]) \]
 \textbf{D\r{u}kaz \\ }
@@ -219,7 +222,7 @@ podle relativizace $ (x \in y)^{ \mathcal{M}} $ odpov\'{i}d\'{a} formule $ x \in
 \[ x \in y^{M} \Leftrightarrow \langle M,\in \rangle  \vDash \left\ulcorner x \in y \right\urcorner \]
 t\'{i}m m\'{a}me dok\'{a}zano lemma pro atomick\'{e} formule.
 \newpage
-Tedy m\'{a}me dok\'{a}z\'{a}no pro 
+Nech\'{t} tedy m\'{a}me dok\'{a}z\'{a}no pro 
 \[ \psi^{M}(x_0,..,x_{n-1}) \Leftrightarrow \langle M,\in \rangle  \vDash \left\ulcorner \psi \right\urcorner[\langle x_0,..,x_{n-1})\rangle ] \]
 \[ \phi^{M}(x_0,..,x_{n-1}) \Leftrightarrow \langle M,\in \rangle  \vDash \left\ulcorner \phi \right\urcorner[\langle x_0,..,x_{n-1})\rangle ] \]
 IIa)Tedy $ \pi(x_0,..\,x_{n-1}) $ je formule tvaru $ \psi(x_0,..\,x_{n-1}) \wedge \phi(x_0,..\,x_{n-1}) $\\
@@ -243,20 +246,17 @@ z induk\v{c}n\'{i}ho p\v{r}edpokladu dost\'{a}v\'{a}me
 co\v{z} podle Tarsk\'{e}ho definice pravdy je pr\'{a}v\v{e}
 \[\langle M,\in \rangle  \vDash \left\ulcorner \exists \psi \right\urcorner[\langle x_0,..,x_{n-1}\rangle ]  \]
 Q.E.D
+\label{lem:formalizace}
 \end{lemma}
-
 \newpage
-
-D\'{a}le si uk\'{a}\'{z}eme formalizaci definovateln\'{y}ch mno\v{z}in.
-
+D\'{a}le si uk\'{a}\v{z}eme formalizaci definovateln\'{y}ch mno\v{z}in.
 \begin{definice}%\bfindex{Notace}
 \textbf{Ohodnocen\'{i} \\ }
 Pro ka\v{z}d\'{e}  $\mathit{n} $ a n-tici $ \langle x_0,..,x_{n-1} \rangle $ $ \mathtt{s} $ je funkce s defi\v{c}n\'{i}m oborem n a hodnotami
 $ \mathtt{s}(i)=x_i  $.
-
 \end{definice}
-
 \begin{definice}%\bfindex{Notace}
+~\\
 Nech\v{t} $ n \in \omega $ a i,j $ < $ n. \\
 \[  Proj(A,R,n) =  \{ \mathtt{s} \in A^n : \exists t \in R (t \upharpoonright n = \mathtt{s}) \}  \]
 \[  Diag_{\in}(A,n,i,j) =  \{ \mathtt{s} \in A^n : \mathtt{s}(i) \in \mathtt{s}(j) \} \] 
@@ -264,7 +264,7 @@ Nech\v{t} $ n \in \omega $ a i,j $ < $ n. \\
 Pot\'{e} rekurz\'{i} p\v{r}es  $ k \in \omega $ defimujeme  $ Df^*(k,A,n) $ : \\
 $  a) Df^*(0,A,n) = \{ Diag_{\in}(A,n,i,j): i,j <  n \} \cup \{ Diag_{=}(A,n,i,j): i,j <  n \}  \ $
 $  b) Df^*(k+1,A,n) = Df^*(k,A,n) \cup \{ A^n-R: R \in Df^*(k,A,n) \} \cup \newline \{ R \cap S: R,S \in Df^*(k,A,n) \}\cup \{ Proj(A,R,n) : R \in Df^*(k,A,n+1) \}    $
-z toho pak definujme
+\\ z toho pak definujme
 \[  Df(A,n)= \bigcup \{Df^*(k,A,n):k \in \omega \} \]  
 \end{definice}
 \begin{lemma}%\bfindex{Notace} 
@@ -297,12 +297,13 @@ tedy z definice
 \[ Proj(A,R,n)\in Df^*(x+1,A,n) \] 
 a tedy pak i 
 \[ Proj(A,R,n) \in Df(A,n) \]
+\label{lem:uzavr}
 \end{lemma}
 
 \begin{lemma}%\bfindex{Notace}
 ~\\
 Nech\v{t} $ \phi(x_0,..,x_{n-1})  $je formule s voln\'{y}mi prom\v{e}n\'{y} $ x_0,...,x_{n-1}$ tak 
-\[ \forall A [\{ \mathtt{s} \in A^n: \phi^\mathrm{A} (\mathtt{s}(0),..,\mathtt{s}(n-1)\} \in Df(A,n)]  (*)  \]
+\[ \forall A [\{ \mathtt{s} \in A^n: \phi^\mathrm{A} (\mathtt{s}(0),..,\mathtt{s}(n-1)\} \in Df(A,n)]   \]
 \textbf{D\r{u}kaz \\ } 
 Indukc\'{i} podle slo\v{z}itosti formule s fixovanym A. \\
 Nech\v{t} $ \phi $ je atomatick\'{a} formule $ x_i \in x_j $ pak z 
@@ -332,9 +333,12 @@ Z induk\v{c}n\'{i}ho p\v{r}edpokladu \[ \{t \in A^{n-1}: \psi^\mathrm{A}(t(0),..
 a tedy podle p\v{r}edchoz\'{i}ho lemmatu tedy plat\'{i} 
 \[ Proj(A,\{t \in A^{n-1}: \psi^\mathrm{A}(t(0),...t(n))\},n) \in  Df(A,n)\] 
 co\v{z} je p\v{r}esn\v{e} 
-\[  \{ \mathtt{s} \in A^n: (\exists y ~\psi)^\mathrm{A} (\mathtt{s}(0),..,\mathtt{s}(n-1)\} \]  Q.E.D. \newpage
-\end{lemma}
+\[  \{ \mathtt{s} \in A^n: (\exists y ~\psi)^\mathrm{A} (\mathtt{s}(0),..,\mathtt{s}(n-1)\} \]  Q.E.D. 
+\label{lem:ntice}
+\end{lemma} 
+\newpage
 \begin{definice}%\bfindex{}
+~\\
 Rekurz\'{i} p\v{r}es $ m \in \omega $. \\ En(m,A,n) je definov\'{a}na nasleduj\'{i}c\'{i}mi klauzulemi.: \\
 a) Kdy\v{z} $ m=2^i*3^j $ a $ i,j < n $ tak $ En(m,A,n) = Diag_{\in}(A,n,i,j)$ . \\
 b) Kdy\v{z} $ m=2^i*3^j*5 $ a $ i,j < n $ tak $ En(m,A,n) = Diag_{=}(A,n,i,j)$ . \\
@@ -344,7 +348,8 @@ e) Kdy\v{z} $ m=2^i*3^j*5^4 $ tak $ En(m,A,n) = Proj(A,E(i,A,n+1),n)$ . \\
 f) Kdy\v{z} m m\'{a} jin\'{y} rozklad ne\v{z} (a)-(e), tak  $ En(m,A,n)= \emptyset $ .  \\
 \end{definice}
 \begin{lemma}
-Pro libovoln\'{e} n a A, \[ Df(A,n)=\{En(m,A,n): m \in \omega \} \].  
+~\\
+Pro libovoln\'{e} n a A, \[ Df(A,n)=\{En(m,A,n): m \in \omega \} \]
 \textbf{D\r{u}kaz \\ }
 Nejd\v{r}\'{i}ve indukc\'{i} p\v{r}es m pro libovoln\'{e}  n,  \[ \forall n (En(m,A,n) \in Df(A,n))  \] 
 Pokud je  $ m=2^i*3^j $ a $ i,j < n $ tak
@@ -376,24 +381,55 @@ z induk\v{c}n\'{i}ho p\v{r}edpokladu a lemmatu 4 pro projekci
 \[  En(m,A,n) \in Df(A,n) \]
 Pokud je  m je jin\'{e} ne\v{z} p\v{r}edchoz\'{i} tak  
 \[ En(m,A,n)= \emptyset \] 
-z induk\v{c}n\'{i}ho p\v{r}edpokladu a lemmatu 4 pro komplement a pr\r{u}nik  
+z induk\v{c}n\'{i}ho p\v{r}edpokladu a lemmatu \ref{lem:uzavr} pro komplement a pr\r{u}nik  
  \[ En(m,A,n) \in Df(A,n) \] 
 Druh\'{y} sm\v{e}r \[ Df^*(k,A,n) \subset\{En(m,A,n): m \in \omega \} \]  
 proto\v{z}e  v\v{s}echny $Df^*(k,A,n)$ jsou pr\'{a}v\v{e} bud mno\v{z}iny \\ $ Diag_{\in}(A,n,i,j)$ nebo $ Diag_{=}(A,n,i,j)$~komplementy, pr\r{u}niky a projekce . \\ Co\v{z} jsou pr\'{a}v\v{e} podmno\v{z}iny $\{En(m,A,n): m \in \omega \} $ Q.E.D.
+\label{lem:enume}
 \end{lemma}
+\newpage
 \begin{lemma}
 Nech\v{t} $ \phi(x_0,...,x_{n-1}) $ je formule s voln\'{y}mi prom\v{e}nn\'{y}mi mezi $ x_0,...,x_{n-1} $ pak existuje n\v{e}jak\'{e} m, takov\'{e}, \v{z}e \\
-$\forall A [ \{ s \in A^n : \phi^A(s(0),...,s(n-1))\} = En(m,A,n)] $ .
+\[ \forall A [ \{ s \in A^n : \phi^A(s(0),...,s(n-1))\} = En(m,A,n)]  \]
+\textbf{D\r{u}kaz \\ }
+Z lemma \ref{lem:ntice} v\'{i}me,\v{z}e 
+\[ \forall A [\{ \mathtt{s} \in A^n: \phi^\mathrm{A} (\mathtt{s}(0),..,\mathtt{s}(n-1)\} \in Df(A,n)]   \]
+a z lemma \ref{lem:enume} v\'{i}me 
+\[ \forall x (x \in Df(A,n) \rightarrow \exists m (x = En(m,A,n))) \]  
+tak musi existovat takov\'{e} m \v{z}e 
+\[ \forall A [ \{ s \in A^n : \phi^A(s(0),...,s(n-1))\} = En(m,A,n)]  \]
+jako p\v{r}\'{i}m\'{y} d\r{u}sledek dvou p\v{r}edchoz\'{i}ch lemmat
 \end{lemma}
 \begin{definice}
+~\\
 Nech\v{t} s a t jsou funkce takov\'{e},\v{z}e $ dom(s)=\alpha  $ a $ dom(t)=\beta $ tak funkce s\textasciicircum t s defini\v{c}\'{i}m oborem $\alpha+\beta$ je definov\'{a}no:\\
  s\textasciicircum t $ \upharpoonright( \alpha )= s $ \\
  s\textasciicircum t ($\alpha+\epsilon)=t(\epsilon)$ pro v\v{s}echny $ \epsilon < \beta $
 \end{definice}
+\begin{definice}
+~\\
+ $  \mathfrak{DP}(A)= \{ X \subset A: \exists n \in \omega \exists s \in A^n \exists R \in Df(A,n+1)  $ \\
+$X=\{ x \in A:$s\textasciicircum $ \langle x \rangle \in R \}  \}     $
+\label{def:defi}
+\end{definice}
+Lze nahl\'{e}dnout, \v{z}e definice naho\v{r}e je formalizace definovalnosti formule, co\v{z} si i te\v{d} dok\'{a}\v{z}em.       
+\begin{lemma}
+~\\
+Nech\v{t}  $ \phi(x_0,..,x_{m-1},y)  $je formule s voln\'{y}mi prom\v{e}n\'{y} $ x_0,...,x_{m-1},y$, tak
+\[ \forall A \forall x_0,..,x_{m-1} [\{ y \in A: \phi^\mathrm{A} (x_0,..,x_{m-1},y)\} \in  \mathfrak{DP}(A)]   \]
+\textbf{D\r{u}kaz \\} 
+Nech\v{t} tedy m\'{a}me A,m a $x_0,..,x_{m-1}$  fixovan\'{e} \\ z lemma \ref{lem:ntice} v\'{i}me,\v{z}e pro ka\v{z}dou $  \phi^\mathrm{A} (x_0,..,x_{m-1},y)$ existuje $R \in Df(A,n+1)$
+a vezmeme $ n=m $ a $s=(x_0,..,x_{m-1})$  
+z definice \ref{def:defi} m\'{a}me $ X \in \mathfrak{DP}(A) $,kde
+$ X = \{ y \in A: \phi^\mathrm{A} (x_0,..,x_{m-1},y)\} $.
+\label{lem:def}
+\end{lemma}
+
+
 \subsection{Funkce}
 \begin{definice}
 Formule $\varphi(x_1,..,x_n)$ je $\Delta$-0 formule teorie mno\v{z}in , pokud:\\
-a)formule nem\'{a} kvantifik\'{a}tory \\
+a)jsou atomick\'{e} formule \\
 b)Kdy\v{z} $\varphi$ je $\varpi \wedge \varsigma$ nebo $\varpi \vee  \varsigma$ nebo $\varpi \Rightarrow   \varsigma$ a formule $\varpi$  a $\varsigma$ jsou $\Delta$-0 formule.\\
 c)$\varphi$ je $\exists x \in y \varpi$ nebo $\varphi$ je $\forall x \in y \varpi$ a formule $\varpi$ je $\Delta$-0 formule.
 \end{definice}
@@ -401,26 +437,188 @@ c)$\varphi$ je $\exists x \in y \varpi$ nebo $\varphi$ je $\forall x \in y \varp
 \textbf{G\"{o}delovy operace \\}
 $ G_1(X,Y)=\{X,Y\}  $ \\
 $ G_2(X,Y)= X \times  Y  $ \\
-$ G_3(X,Y)=\epsilon(X,Y)=\{(u,v): u \in X \wedge  v \in Y \wedge  u \in v \}  $ \\
+$ G_3(X,Y)=\epsilon(X,Y)=\{\langle u,v\rangle: u \in X \wedge  v \in Y \wedge  u \in v \}  $ \\
 $ G_4(X,Y)= X -  Y  $ \\
 $ G_5(X,Y)= X \cap  Y  $ \\
 $ G_6(X)= \bigcup X $ \\
 $ G_7(X)= dom(X) $ \\
-$ G_8(X)= \{(u,v): (v,u) \in X \} $ \\
-$ G_9(X)= \{(u,v,w): (u,w,v) \in X \} $ \\
-$ G_{10}(X)= \{(u,v,w): (v,w,u) \in X \} $ \\
+$ G_8(X)= \{\langle u,v \rangle: \langle v,u \rangle \in X \} $ \\
+$ G_9(X)= \{\langle u,v,w \rangle: \langle u,w,v \rangle \in X \} $ \\
+$ G_{10}(X)= \{ \langle u,v,w \rangle: \langle v,w,u \rangle \in X \} $ \\
+\label{def:operace}
+\end{definice}
+\begin{lemma}
+~\\
+Godelovy operace jsou $\Delta$-0 formule.\\
+\textbf{D\r{u}kaz \\ }
+\underline{\textit{Pro $G_1(X,Y)=Z$:}}
+~\\
+\[ ( Z=\{X,Y\}) \Leftrightarrow ( X \in Z \wedge  Y \in Z \wedge (\forall a \in Z)(a=X \vee a=Y))   \]
+\underline{\textit{Pro $G_2(X,Y)=Z$:} \\}
+~\\
+Nejd\v{r}\'{i}ve si dok\'{a}\v{z}eme,\v{z}e  podformule $  A= \langle B,C  \rangle $ je  $\Delta$-0 formule \\
+~\\
+$ A= \langle B,C  \rangle )\Leftrightarrow (((\forall a \in A)(x = \{B\} ~ \vee ~ x = \{B,C\})) \wedge $  
+\[  \wedge ((\exists a \in A)(\exists d \in A)(a=\{B\} \wedge d=\{B,C\})  \] 
+Te\v{d} p\v{r}ejdem k d\r{u}kazu samotn\'{e}ho $ Z=X \times  Y $ \\
+~\\
+$ (Z=X \times  Y) \Leftrightarrow ( ((\forall z \in Z) (\exists x \in X)  (\exists y \in Y)  z= \langle  x,y \rangle ) \wedge $ 
+\[  \wedge ((\forall x \in X) (\forall y \in Y)  (\exists z \in Z) z= \langle x,y \rangle ) )  \]
+\underline{Pro $ G_3(X,Y)= Z $: } \\
+~\\
+$ (Z=\epsilon(X,Y)) \Leftrightarrow (((\forall z \in Z) (\exists x \in X)  (\exists y \in Y) ( z= \langle x,y \rangle \wedge x \in y)) \wedge $ \\
+\[  \wedge ((\forall x \in X) (\forall y \in Y) (\exists z \in Z) ( x \in y \rightarrow  z= \langle  x,y \rangle)))  \]
+\underline{Pro $ G_4(X,Y)= Z $:} 
+\[ (Z=X -Y ) \Leftrightarrow (((\forall z \in Z) (z \in X \wedge z \notin Y)) \wedge ((\forall x \in X) (x \notin Y \rightarrow x \in Z)))  \]
+\underline{Pro $ G_5(X,Y)= Z $:} 
+ \[  (Z=X \cup Y ) \Leftrightarrow (((\forall z \in Z) (z \in X \wedge z \in Y)) \wedge ((\forall x \in X) (x \in Y \rightarrow x \in Z))) \]  
+\underline{Pro $ G_6(X)= Z $:} \\
+\[  (Z=\bigcup X ) \Leftrightarrow (((\forall z \in Z)(\exists x \in X) z \in x) \wedge ((\forall x \in X) (\forall z \in x)(z \in Z)))  \] 
+\underline{Pro $ G_7(X)= Z $:}\\
+Nejd\v{r}\'{i}ve si dok\'{a}\v{z}eme, \v{z}e podformule $  z \in dom(X) $ je  $\Delta$-0 formule
+\[ (z \in dom(X)) \Leftrightarrow ((\exists x \in X)(\exists Y \in x)(\exists y \in Y)\langle z ,y \rangle  = x) \]
+a te\v{d} pokud $  \phi $ je  $\Delta$-0 formule pak $ ((\forall y \in dom(X))\phi) $ je $\Delta$-0 formule 
+\[ (\forall y \in dom(X)\phi) \Leftrightarrow  ((\forall x \in X)(\forall Y \in x)(\forall y \in Y)(\forall i \in Y)(\langle z ,y \rangle  = x \rightarrow  \phi))  \]
+Te\v{d} si kone\v{c}n\v{e} dok\'{a}\v{z}eme $ Z=dom(X) $
+ \[  (Z=dom(X) ) \Leftrightarrow (((\forall z \in Z) z \in dom(X))\wedge ((\forall z \in dom(X)) z\in Z))\]
+ \underline{Pro $ G_8(X)= Z $:} \\
+Nejd\v{r}\'{i}ve si dok\'{a}\v{z}eme, \v{z}e podformule $  \langle y,z \rangle \in X $ je  $\Delta$-0 formule
+\[ (\langle y,z \rangle \in X) \Leftrightarrow ((\exists x \in X)x=\langle y,z \rangle)  \]
+a te\v{d} pomoc\'{i} toho dok\'{a}\v{z}eme $  (Z = \{\langle u,v \rangle: \langle v,u \rangle \in X \} )$ \\
+$ (Z = \{\langle u,v \rangle: \langle v,u \rangle \in X \} ) \Leftrightarrow ((\forall z \in Z) (\exists x \in X)(z=\langle u,v \rangle \rightarrow x=\langle v,u \rangle) \wedge$ \[ \wedge(\forall x \in X) (\exists z \in Z)(x=\langle u,v \rangle \rightarrow z=\langle v,u \rangle)) \]
+ \underline{Pro $ G_9(X)= Z $:} \\
+Nejd\v{r}\'{i}ve si dok\'{a}\v{z}eme, \v{z}e podformule $ a \in  \langle x,y,z \rangle $ je  $\Delta$-0 formule \\
+\[  (a \in  \langle x,y,z \rangle )\Leftrightarrow (a=\langle x,y \rangle \vee a= z)  \] 
+To pou\v{z}ijeme k d\r{u}kazu,\v{z}e $ A=\langle x,y,z \rangle   $ je  $\Delta$-0 formule\\
+\[ (A=\langle x,y,z \rangle ) \Leftrightarrow ((\forall a \in A) (a=\langle x,y \rangle \vee a= z) \wedge \langle x,y \rangle \in A \wedge  z \in A) \]
+\v{c}\'{i}m\v{z} dok\'{a}\v{z}eme,\v{z}e $ \langle x,y,z \rangle \in A   $ je  $\Delta$-0 formule\\
+\[ (\langle x,y,z \rangle \in A)  \Leftrightarrow ((\exists a \in A) a= \langle x,y,z \rangle ) \]
+\newpage
+a kone\v{c}n\v{e} pomoc\'{i} toho dok\'{a}\v{z}eme,\v{z}e  $  (Z = \{\langle u,v,w \rangle: \langle u,w,v \rangle \in X \} )$ \\
+ \[ (Z = \{\langle u,v,w \rangle: \langle v,w,u \rangle \in X \} ) \Leftrightarrow  \]  \[  \Leftrightarrow  (((\forall z \in Z)(\exists x \in X)(z=\langle u,v,w \rangle \rightarrow x= \langle v,w,u \rangle)) \wedge  \] \[ \wedge  ((\forall x \in X)(\exists z \in Z)( x= \langle v,w,u \rangle \rightarrow z=\langle u,v,w \rangle))) \] 
+\underline{Pro $ G_{10}(X)= Z $:} 
+ \[ (Z = \{\langle u,v,w \rangle: \langle u,w,v \rangle \in X \} ) \Leftrightarrow  \]  \[  \Leftrightarrow  (((\forall z \in Z)(\exists x \in X)(z=\langle u,v,w \rangle \rightarrow x= \langle u,w,v \rangle)) \wedge  \] \[ \wedge  ((\forall x \in X)(\exists z \in Z)( x= \langle u,w,v \rangle \rightarrow z=\langle u,v,w \rangle))) \] 
+\end{lemma} 
+\begin{lemma}
+~\\ Pro ka\v{z}dou Godelovu operaci existuje  $\Delta$-0 formule $ x \in G(X_1,..X_n) $. \\
+\textbf{D\r{u}kaz \\ }
+\underline{\textit{Pro $z \in G_1(X,Y)$:}} 
+\[ (z \in \{X,Y\}) \Leftrightarrow (z=X \vee z=Y) \]
+\underline{\textit{Pro $z \in G_2(X,Y)$:}} 
+\[ (z \in X \times Y) \Leftrightarrow (x\in X \wedge y \in Y \wedge z=(x,y)) \]
+\underline{\textit{Pro $z \in G_3(X,Y)$:}} 
+\[ (z \in \epsilon(X,Y)) \Leftrightarrow (x\in X \wedge y \in Y \wedge z=(x,y) \wedge x \in y) \]
+\underline{\textit{Pro $z \in G_4(X,Y)$:}} 
+\[ (z \in X - Y) \Leftrightarrow (z\in X \wedge z \notin Y ) \]
+\underline{\textit{Pro $z \in G_5(X,Y)$:}} 
+\[ (z \in X \cap Y) \Leftrightarrow (z\in X \wedge z \in Y) \]
+\underline{\textit{Pro $z \in G_6(X)$:}} 
+\[ (z \in \bigcup X \Leftrightarrow (\exists x\in X \wedge z \in x) \]
+\underline{\textit{Pro $z \in G_7(X)$:}} \\
+To jsme dok\'{a}zali v p\v{r}edchoz\'{i}m lemmma. 
+\[ (z \in dom(X)) \Leftrightarrow ((\exists x \in X)(\exists Y \in x)(\exists y \in Y)\langle z ,y \rangle  = x)) \]
+\underline{\textit{Pro $z \in G_8(X)$:}} 
+\[ (z \in \{ (y,x) : (x,y) \in X \}) \Leftrightarrow ((z=(y,x) \wedge (x,y) \in X))\]
+\underline{\textit{Pro $z \in G_9(X)$:}} 
+\[ (z \in \{ (y,x,q) : (y,q,x) \in X \}) \Leftrightarrow ((z=(y,x,q) \wedge (y,q,x) \in X)\]
+\underline{\textit{Pro $z \in G_{10}(X)$:}} 
+\[ (z \in \{ (y,x,q) : (x,q,y) \in X \}) \Leftrightarrow ((z=(y,x,q) \wedge (x,q,y) \in X)\]
+Q.E.D.
+\label{lem:in}
+\end{lemma}
+\begin{definice}
+~\\
+\v{R}\'{i}kame, \v{z}e t\v{r}\'{i}da  $ \textsf{T} $ je tranzitivn\'{i} :
+\[ (\forall x \in  \textsf{T}) (\forall y \in x)  \rightarrow y \in \textsf{T} \]
 \end{definice}
 \begin{definice}
-T\v{r}\'{i}da $ \textsf{T} $ je uzav\v{r}en\'{a} operaci $ \textsl{F}  $ kdy\v{z} $ \textsl{F}(x_1,...,x_n) \in \textsf{T}  $ kdykoliv kdy\v{z} $x_1,...,x_n \in \textsf{T}  $
+~\\
+\v{R}\'{i}kame, \v{z}e model $\langle M,\in \rangle  $ je tranzitivn\'{i} : \\
+Kdy\v{z} $  \textsf{M} $ je tranzitivn\'{i} t\v{r}\'{i}da .
 \end{definice}
+\begin{lemma}
+~\\
+Kdy\v{z} $  \textsf{M} $ je tranzitivn\'{i} t\v{r}\'{i}da a $\phi$ je $\Delta$-0 formule, tak pro v\v{s}echny $ x_1,...,x_n $: 
+ \[ (\psi^{M}(x_0,..,x_{n-1})) \Leftrightarrow (\psi(x_0,..,x_{n-1})) \]
+\textbf{D\r{u}kaz \\ }
+Indukc\'{i} podle slo\v{z}itosti formule:\\
+\underline{$ \psi  $ je $x=y$: } \\
+podle definice \ref{def:relat} je \[ (x=y)^{M} \Leftrightarrow x=y  \]
+\underline{$ \psi  $ je $x \in y: $} \\
+podle definice \ref{def:relat} je \[ (x\in y)^{M} \Leftrightarrow x\in y \]
+Nech\v{t} $  \phi^{M} \Leftrightarrow \phi  $ a $ \pi^{M} \Leftrightarrow \pi $ \\
+\underline{$ \psi  $ je $\phi \wedge \pi: $} \\
+podle definice \ref{def:relat} je 
+\[ (\phi \wedge \pi)^{M} \Leftrightarrow \phi^{M}\wedge \pi^{M}  \] 
+z induk\v{c}n\'{i}ho p\v{r}edpokladu 
+\[ \phi^{M}\wedge \pi^{M} \Leftrightarrow (\phi \wedge \pi) \]
+\underline{$ \psi  $ je $\neg \phi: $} \\
+podle definice \ref{def:relat} je 
+\[ (\neg \phi)^{M} \Leftrightarrow \neg (\phi^{M})  \] 
+z induk\v{c}n\'{i}ho p\v{r}edpokladu 
+\[ \neg (\phi^{M})  \Leftrightarrow \neg \phi \]
+\underline{$ \psi  $ je $(\exists u\in x)\phi(u,x,...): $} \\
+podle definice \ref{def:relat} je 
+\[  (\exists u(u\in x \wedge \phi))^{M} \Leftrightarrow ((\exists u \in M) (u\in x \wedge \phi^{M})) \]
+z induk\v{c}n\'{i}ho p\v{r}edpokladu 
+\[ (\exists u \in M) (u\in x \wedge \phi^{M})) \Leftrightarrow (\exists u \in M) (u\in x \wedge \phi)) \rightarrow (\exists u(u\in x \wedge \phi))  \]
+Druh\'{a} strana implikace z tranzitivity M Q.E.D
+\label{lem:transa}
+\end{lemma}
+\begin{definice}
+~\\
+Formule spl\v{n}uj\'{i}c\'{i} lemma \ref{lem:transa} se naz\'{y}v\'{a} absolutn\'{i} v\r{u}\v{c}i tranzitivn\'{i}mu modelu
+$  \textsf{M} $.
+\end{definice} 
+\begin{definice}
+~\\
+\v{R}\'{i}kame, \v{z}e t\v{r}\'{i}da $ \textsf{T} $ je uzav\v{r}en\'{a} operaci $ \textsl{F}  $ :\\ 
+kdy\v{z} $ \textsl{F}(x_1,...,x_n) \in \textsf{T}  $ kdykoliv kdy\v{z} $x_1,...,x_n \in \textsf{T}  $
+\end{definice}
+\begin{definice}
+~\\
+Kdy\v{z} t\v{r}\'{i}da \textsf{M} je uzav\v{r}en\'{a} na $G_1,G_2,G_3,G_4,G_5,G_6,G_7,G_8,G_9,G_{10}$ tak \v{r}ekneme,~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  \\ \v{z}e \textsf{M} je uzav\v{r}en\'{e} na G\"{o}delovy operace 
+\end{definice}
+\begin{definice}
+~\\
+P\v{r}esn\v{e} tak vytvo\v{r}\'{i}me uz\'{a}v\v{e}r na  G\"{o}delovy operace $ \mathfrak{D}(A) $ mno\v{z}iny A \\
+Rekurz\'{i} p\v{r}es $ n \in \omega $ definujme:
+\[ A_1=A  \]
+a pro ka\v{z}d\'{e} $ n \in \omega $:\\
+\[ A_{n+1}= A_n \cup  \{x:(\exists y,z \in A_n)(x=G_1(z,y) \vee .. \vee x=G_{10}(z))\} =A^*_n  \]
+pak 
+\[ \mathfrak{D}(A)=\bigcup_{j \in \omega}   A_j \]
+\end{definice}
+\begin{lemma}
+~\\
+Metamatematickou indukc\'{i} sestroj\'{i}me $\Delta$-0 formule pro $ X_n $:
+\[ (X_1=Y) \Leftrightarrow ((\forall y \in Y)( y\in X_1) \wedge  (\forall y \in X_1)( y\in Y)) \]
+Nech\v{t} tedy m\'{a}me $\Delta$-0 formuli pro $ y \in X_{n}  $
+\[ (x \in X^*_n) \Leftrightarrow ((\exists y \in X_{n}) (\exists z \in X_{n})(x=G_1(z,y) \vee .. \vee x=G_{10}(z)) \]
+\[ x \in (X_{n+1}) \Leftrightarrow ((\exists y \in X_{n}) y=x) \vee ((\exists y \in X^*_n) x=y))  \]
+$  x \in \mathfrak{D}(A) $ je $\Delta$-0 formule
+\[  ((x \in \mathfrak{D}(A)) \Leftrightarrow ((\exists n \in \omega) x \in (X_{n})) \]
+\label{lem:abs}
+\end{lemma}
+Te\v{d} kdy\v{z} se kouknem na p\v{r}edchoz\'{i} lemmata m\'{a}me materi\'{a}l pro toho abychom zapsali ka\v{z}d\'{y} prvek uz\'{a}v\v{e}ru jako $\Delta$-0 formuli. Proto\v{z}e m\'{a}me definici ka\v{z}d\'{e}ho $ X_n $ a tedy a pro ka\v{z}d\'{e} x z uz\'{a}v\v{e}ru jsme schopny naj\'{i}t nejmen\v{s}\'{i} $ X_n $ kter\'{e} obsahuje v\v{s}echny parametry vstupuj\'{i}c\'{i} do jedn\'{e} z rovnic, kter\'{a} p\v{r}id\'{a}v\'{a} x do uz\'{a}v\v{e}ru pro j od jedn\'{e} od p\v{e}ti a pro i od \v{s}esti do deseti.
+\[ x=G_j(u,v) \]
+\[ x=G_i(u) \]
+\begin{lemma}
+~\\
+Ozna\v{c}me $ u=(u_1,..,u_n) $ ,$  X=X_1 \times .. \times X_n $ a $ u_i \in X_i $ pro v\v{s}echna i . Tak pro v\v{s}echny $ u \in X $ plat\'{i}.
+Nech\v{t} m\'{a}me formuli 
+\[ \varphi(u)  \Leftrightarrow (\exists x \in u_i) \psi(u,x) \]
+ta je ekvivaletn\'{i} formuli
+\[ \exists x( x \in u_i \wedge \psi(u,x) \wedge x \in \bigcup X_i) \]
+co\v{z} je ekvivalentn\'{i} formuli
+\[ u \in dom\{(u,x) \in X \times \bigcup X_i: \pi(u,x)\} \]
+\label{lem:for}
 
-Kdy\v{z} t\v{r}\'{i}da \textsf{M} je uzav\v{r}en\'{a} na $G_1,G_2,G_3,G_4,G_5,G_6,G_7,G_8,G_9,G_{10}$ tak \v{r}ekneme, \v{z}e \textsf{M} je uzav\v{r}en\'{e} na G\"{o}delovy operace
-
-
-\textbf{G\"{o}delova norm\'{a}ln\'{i} forma}
+\end{lemma}
 \begin{veta}
+~\\
 Nech\v{t} m\'{a}me operace G\"{o}delovy operace a formule $\varphi(x_1,..,x_n)$ je $\Delta$-0 formule, tak tu je G slo\v{z}en\'{e} z $G_1,G_2,G_3,G_4,G_5,G_6,G_7,G_8,G_9,G_{10}$, tak\v{z}e pro v\v{s}echny $X_1,...,X_n$ 
-\[ G(X_1,...,X_n)=\{(u_1,..u_n): u_1 \in X_1,..., u_n \in X_n a \varphi(x_1,..,x_n)\}  \]
+\[ G(X_1,...,X_n)=\{(u_1,..u_n): u_1 \in X_1,..., u_n \in X_n a \varphi(x_1,..,x_n)\}  \]   
 \textbf{D\r{u}kaz \\ }
 V\v{e}tu dok\'{a}\v{z}eme pomoc\'{i} indukce podle slo\v{z}itosti $\Delta$-0 formule. Pro zjednodu\v{s}en\'{i} d\r{u}kazu p\v{r}edpokl\'{a}dejme, \v{z}e: \\
 a)Pou\v{z}it\'{e} logick\'{e} symboly jsou pouze konjunce $ \wedge $, negace $ \neg $ a omezen\'{y} existen\v{c}n\'{i} kvantifik\'{a}tor $ \exists $. \\
@@ -456,7 +654,7 @@ co\v{z} odpov\'{i}d\'{a}
 \[ G_2(X,Y)= X \times  Y \]
 tedy
 \[ \{(u_1 ,..., u_{n}) : u_1 \in  X_1,..., u_{n}  \in  X_{n} ~ \wedge ~ u_i \in  u_j \}=G_8(G(X_1,...X_{n-1}),X_n) \]
-\newpage
+
 Nech\v{t} $ n > 2 $~a  $i\neq  n-1 $  a $j \neq  n-1 $:\\
 Z induk\v{c}n\'{i}ho p\v{r}edpokladu m\'{a}me
 \[ \{(u_1 ,...,u_{n-2},u_n, u_{n-1} ): u_1 \in  X_1,...,  u_{n}  \in  X_{n}  \wedge  u_i \in  u_j \}=G(X_1,...X_{n})   \]
@@ -473,56 +671,295 @@ a opakov\'{a}n\'{i}m operace $G_2$ dost\'{a}me
 \[ \{(u_1 ,..., u_{n-2}) : u_1 \in  X_1,...,u_{n-2}  \in  X_{n-2}\} \\
 = G_2(G(X_1,..,X_{n-3}),X_{n-2}) \]
 a tedy 
-\[ \{(u_1 ,..., u_n) : u_1 \in  X_1,...,u_{n}  \in  X_{n} \wedge  u_{n-1} \in  u_n  \}=G_2(G(X_1,..,X_{n-2}),\epsilon(X_{n-1},X_n))\]
+\[ \{(u_1 ,..., u_n) : u_1 \in  X_1,...,u_{n}  \in  X_{n} \wedge  u_{n-1} \in  u_n  \}=\]
+\[=G_2(G(X_1,..,X_{n-2}),\epsilon(X_{n-1},X_n))\]
 Nech\v{t} $ n > 2 $~a $i= n $  a $j =  n-1$ :\\
 Z induk\v{c}n\'{i}ho p\v{r}edpokladu m\'{a}me
 \[ \{(u_{n} , u_{n-1}) : u_{n-1} \in  X_{n-1} \wedge  u_n \in  X_n \wedge  u_n \in  u_{n-1} \}=G_8(\epsilon(X_{n-1},X_n))  \]
 a opakov\'{a}n\'{i}m operace $G_2$ dost\'{a}me
 \[ \{(u_1 ,..., u_{n-2}) : u_1 \in  X_1,...,u_{n-2}  \in  X_{n-2}\} \\
 = G_2(G(X_1,..,X_{n-3}),X_{n-2}) \]
-a tedy 
-\[ \{(u_1 ,..., u_n) : u_1 \in  X_1,...,u_{n}  \in  X_{n} \wedge  u_{n-1} \in  u_n  \}=G_2(G(X_1,..,X_{n-2}),G(X_{n-1},X_n))\]
-\newpage
-Nech\v{t} $\varphi(x_1,..,x_n)$ je formule $\neg \psi (x_1,..,x_n)$\\
+a tedy je z\v{r}ejm\'{e},\v{z}e 
+\[ \{(u_1 ,..., u_n) : u_1 \in  X_1,...,u_{n}  \in  X_{n} \wedge  u_{n-1} \in  u_n  \}=\]
+\[=G_2(G(X_1,..,X_{n-2}),G_8(\epsilon(X_{n-1},X_n)))\]
+M\'{a}me tedy dok\'{a}z\'{a}no pro atomick\'{e} formule. \\
+Nech\v{t} $\varphi(x_1,..,x_n)$ je $\neg \psi(x_1,..,x_n)$.\\
 Z induk\v{c}n\'{i}ho p\v{r}edpokladu m\'{a}me
-\[ \{(u_1 ,..., u_{n}) : u_1 \in  X_1,...,u_{n}  \in  X_{n} ~ \wedge ~ \psi (x_1,..,x_n)\}=G(X_1,..,X_n)=Z \]
-z p\v{r}edchoz\'{i} \v{c}\'{a}sti v\'{i}me,\v{z}e Kartezsk\'{y} sou\v{c}in je G\"{o}delova operace
-\[ X_1 \times , .., \times  X_n =G(X_1,..,X_n)=Y \]
-je z\v{r}ejm\'{e}
-\[ \{(u_1 ,..., u_{n}) : u_1 \in  X_1,...,u_{n}  \in  X_{n} ~ \wedge ~ \varphi (x_1,..,x_n)\}=G_4(Y,Z) \]
-
-
-
-
-
-
-
+\[ \{(u_{n} , u_{n-1}) : u_{n-1} \in  X_{n-1} \wedge  u_n \in  X_n \wedge \psi(x_1,..,x_n)  \}=G(X_{1},..,X_n)  \]
+pomoc\'{i} toho si vyj\'{a}d\v{r}\'{i}me  $\varphi(x_1,..,x_n)$
+\[ \{(u_{n} , u_{n-1}) : u_{n-1} \in  X_{n-1} \wedge  u_n \in  X_n \wedge \varphi(x_1,..,x_n)  \}=\]\[=(X_1 \times ...\times X_n) - G(X_{1},..,X_n) = \]\[=G_4(G(X_1,..,X_n),G(X_{1},..,X_n)) \]
+Nech\v{t} $\varphi(x_1,..,x_n)$ je $\psi(x_1,..,x_n) \wedge \pi(x_1,..,x_n)$.\\
+Z induk\v{c}n\'{i}ho p\v{r}edpokladu m\'{a}me
+\[ \{(u_{n} , u_{n-1}) : u_{n-1} \in  X_{n-1} \wedge  u_n \in  X_n \wedge \psi(x_1,..,x_n)  \}=G(X_{1},..,X_n)  \]
+\[ \{(u_{n} , u_{n-1}) : u_{n-1} \in  X_{n-1} \wedge  u_n \in  X_n \wedge \pi(x_1,..,x_n)  \}=G(X_{1},..,X_n)  \]
+pomoc\'{i} toho si vyj\'{a}d\v{r}\'{i}me  $\varphi(x_1,..,x_n)$
+\[ \{(u_{n} , u_{n-1}) : u_{n-1} \in  X_{n-1} \wedge  u_n \in  X_n \wedge \varphi(x_1,..,x_n)  \}=\]\[=G(X_{1},..,X_n) \cap G(X_{1},..,X_n)  = \]\[=G_5(G(X_1,..,X_n),G(X_{1},..,X_n)) \]
+Nech\v{t} $\varphi(x_1,..,x_n)$ je $(\exists u_{n+1} \in u_i) \psi(x_1,..,x_{n+1})$.\\
+Nech\v{t} tedy m\'{a}me induk\v{c}n\'{i} p\v{r}edpoklad pro formuli  $ \pi(x_1,..,x_{n+1})$, kter\'{a} je tvaru 
+$ \psi(x_1,..,x_{n+1}) \wedge u_{n+1} \in u_i $
+\[ \{(u_{1} ,.., u_{n+1}) : u_{1} \in  X_{1} ,.., u_{n+1} \in  X_{n+1} \wedge \pi(x_1,..,x_{n+1})  \}=G(X_{1},..,X_{n+1})  \]
+Vyu\v{z}it\'{i}m lemma \ref{lem:for} dostaneme
+\[ \{(u_{1} ,.., u_{n}) : u_{1} \in  X_{1} , .. , u_{n} \in  X_{n} \wedge \psi(x_1,..,x_{n+1})  \}=\]\[=dom(G(X_{1},..,X_n,\bigcup X_i))  \]
+\label{vet:op}  
 \end{veta}
+\begin{lemma}
+~\\
+Ka\v{z}d\'{a} relativizovan\'{a} formule je $\Delta$-0 formule. \\
+\textbf{D\r{u}kaz \\ }
+Jedin\'{y} tvar formule kdy $  \phi(x_1,..x_n) $ nen\'{i} $\Delta$-0 formule je kdy\v{z} n\v{e}jak\'{a} podformule je tvaru $\exists y \pi$ av\v{s}ak relativizace formule $  \phi(x_1,..x_n) $ na $ \phi^\mathrm{A}(x_1,..x_n) $ znamen\'{a} p\v{r}eps\'{a}n\'{i} podformule na $(\exists y\in A)  \pi$ a tedy se stane tak\'{e} $\Delta$-0 formul\'{i}.
+\label{lem:reldel}
+\end{lemma}
+\begin{veta}
+~\\
+Nech\'{t} A je tranzitivn\'{i} mno\v{z}ina
+\[ \mathfrak{DP}(A)= \mathfrak{D}(A \cup \{A\} ) \cap P(A) \]
+\textbf{D\r{u}kaz \\ }
+Nech\v{t} m\'{a}me n\v{e}jak\'{e} 
+\[ x \in \mathfrak{D}(A \cup \{A\} ) \cap P(A) \]  
+podle lemma \ref{lem:abs} m\'{a}me z \[ x \in \mathfrak{D}(A \cup \{A\} ) \]  $\Delta$-0 formuli tvaru 
+\[ x=G(X_1,..,X_n) \] podle lemma \ref{lem:in} m\'{a}me $\Delta$-0 formuli  \[ \phi (y_1,..,y_{m},z)  \] kter\'{a} definuje prvky x, kter\'{a} podle lemma \ref{lem:transa} m\'{a}me  \[ \phi^\mathrm{A} (y_1,..,y_{m},z) \]  a podle lemma \ref{lem:def} a p\v{r}edpokladu $ x \in P(A) $ m\'{a}me mno\v{z}inu \[ x=\{z \in A: \phi^\mathrm{A} (y_1,..,y_{m},z)\} \in \mathfrak{DP}(A) \]
+Tím jsme dok\'{a}zali \[ \mathfrak{D}(A \cup \{A\} ) \cap P(A) \subset \mathfrak{DP}(A) \]
+Ted si dok\'{a}\v{z}eme druhou inkluzi.
+Nech\v{t} m\'{a}me n\v{e}jak\'{e} 
+\[ x \in \mathfrak{DP}(A) \] 
+z definice \label{def:defi} v\'{i}me, \v{z}e 
+\[  x \in P(A) \]
+ted si mus\'{i}me dok\'{a}zat u\v{z} jen 
+\[  x \in \mathfrak{D}(A \cup \{A\} ) \]
+Nech\v{t} tedy m\'{a}me n\v{e}jak\'{e} 
+\[ x \in \mathfrak{DP}(A) \] 
+kde 
+\[ x=\{z \in A:\phi^\mathrm{A} (y_1,..,y_{m},z)\} \]
+podle lemma \ref{lem:reldel} m\'{a}me  $\Delta$-0 formuli, co\v{z} podle v\v{e}ty \ref{vet:op},znamen\'{a},\v{z}e existuje
+$ G(A,{y_1},..,{y_m}) $ takov\'{e},\v{z}e
+\[ G(A,{y_1},..,{y_m})=x \]
+z \v{c}eho\v{z} plyne, \v{z}e existuje $ X_n $ takov\'{e}, \v{z}e
+\[ x \in X_n \]
+a z definie $ \mathfrak{D}(A\cup \{A\}) $ plyne
+\[ x \in \mathfrak{D}(A\cup \{A\}) \]
+Q.E.D.
+\end{veta}
+\newpage
+\section{Universum $ \mathbb{L} $}
+\subsection{Z\'{a}kladn\'{i} vlasnosti $ \mathbb{L} $} 
+Nejd\v{r}\'{i}ve si transfinitn\'{i} indukc\'{i} zkonstrujujem samotn\'{e} universum $ \mathbb{L} $
 \begin{definice}
-$ \mathfrak{D}(A)= \{ X \subset A: \exists n \in \omega \exists s \in A^n \exists R \in Df(A,n+1)\\
-(X=\{x \in A:$
-s\textasciicircum $ \langle x \rangle \in R \} ) \}   $
+\[ L_0=\varnothing  \]
+\underline{pro n\'{a}sledn\'{i}ka:}
+\[ L_{\alpha + 1}=\mathfrak{DP}(L_\alpha) \]
+\underline{pro limitn\'{i} ordin\'{a}l:}
+\[ L_{\alpha }=\bigcup_{\beta< \alpha} L_\beta \] 
+\[ \mathbb{L}=\bigcup_{\alpha \in \textit{On}} L_\alpha\]
+
 \end{definice}
-\begin{definicex}%\bfindex{Charakter}
-\textbf{Charakteristick\'{a} funkce. \\ }
-Funkci $ \chi $ nazveme charakteristickou, pokud pro n\v{e}jakou $ A\subseteq X $ \\
-$ {\chi}_A:X \rightarrow \{0,1\}$ \\
-$ {\chi}_A(x)=1$ pro $ x \in A $ \\
-$ {\chi}_A(x)=0$ pro $ x \notin A $
-\end{definicex}
 
-\begin{definicex}%\bfindex{Recursiv}
-\textbf{Rekurzivn i mno z ina\\ }
+\begin{lemma}
 
-\end{definicex}
+\[ \mathfrak{DP}(A) \subset P(A) \]
+\textbf{D\r{u}kaz \\ }
+Plyne p\v{r}\'{i}mo z definice $x \in  \mathfrak{DP}(A) $ kdy\v{z} x je definovateln\'{a} podmo\v{z}ina, tedy $  x \in P(A) $
+\end{lemma}
+\begin{lemma}
+\[ \mathbb{L} \subset \mathbb{WF} \]
+\textbf{D\r{u}kaz \\ }
+Indukc\'{i} kdy pro ka\v{z}d\'{e} $ \alpha $ plat\'{i} \[ L_\alpha \subset R_\alpha \]
+a z toho tedy 
+\[ \mathbb{L} \subset \mathbb{WF} \]
+\end{lemma}
+\begin{lemma}
+~\\
+Nech\v{t} M  je transitivn\'{i} mno\v{z}ina, tak $ M \subset \mathfrak{DP}(M)  $ \\
+\textbf{D\r{u}kaz \\ }
+Pou\v{z}ijeme lemma \ref{lem:def} na formuli 
+\[ \forall x \in M (\{y \in M:y \in x\} \in \mathfrak{DP}(M)) \]
+vzhledem k tomu,\v{z}e M  je transitivn\'{i} je ekvivaletni s
+\[ \forall x \in M (x \in \mathfrak{DP}(M)) \]
+\label{lem:sub}
+\end{lemma}
 
+\begin{lemma}
+~\\
+$ L_\alpha $ je transitivn\'{i} \\
+\textbf{D\r{u}kaz \\ }
+Pro pr\'{a}zdnou mno\v{z}inu trivi\'{a}ln\v{e} spln\v{e}no a pro limitn\'{i} $ \alpha $ plat\'{i} kdy\v{i} bude platit pro v\v{s}echny men\v{s}i ordin\'{a}ly.\\
+Nech\v{t} tedy m\'{a}me dok\'{a}z\'{a}no pro $ \forall \beta ( \beta <  \alpha )$ a $  \alpha=\gamma + 1 $
+\[ L_\alpha=\mathfrak{DP}(L_\gamma) \]
+Nech\v{t} tedy 
+\[ x \in (L_\alpha) \]
+z definice $ \mathfrak{DP}(L_\gamma) $
+\[ x \subset L_\gamma \]
+ $ L_\gamma $ je transitivn\'{i} mno\v{z}ina z induk\v{c}n\'{i}ho p\v{r}edpokladu a podle lemma \ref{lem:sub} 
+\[ L_\gamma \subset L_\alpha \]
+Kombinaci t\v{e}chto dvou tvrzen\'{i} dost\'{a}v\'{a}me 
+\[ x \subset L_\alpha\]
+ \end{lemma}
+\begin{definice}
+~\\
+Definujeme mno\v{z}inu pro A, $ x \in A $, $ R\subset A \times A $ \[ \textit{pred(A,x,R)}=\{y \in A: yRx\} \]
+\label{def:pred}
+\end{definice}
 
-\begin{definicex}%\bfindex{Eigenvariable} %tuèná položka rejstøíku, viz balík vsehochut
-Pod pojmem \emph{Eigenvariable} rozumíme volnou promìnnou, pøes níž probíhá kvantifikace pøi užití pravidla generalizace.
-\end{definicex}
-\par
+\begin{definice}
+~\\
+Relaci R nazveme extenzion\'{a}ln\'{i} na A pr\'{a}v\v{e} tehdy kdy\v{z} 
+\[  \forall x,y \in A(x \neq y \rightarrow \textit{pred(A,x,R)} \neq  \textit{pred(A,y,R)})  \]
+\end{definice}
 
-%
+\begin{lemma} 
+\[  \mathit{pred(A,x,\in)} = x    \]
+\textbf{D\r{u}kaz \\ }
+Nech\v{t} $ y \in x $ podle definice \label{def:pred}$ y \in \mathit{pred(A,x,\in)} $ \\
+Nech\v{t} $ y \in \mathit{pred(A,x,\in)}$ z \v{c}eho\v{z} plyne $ y \in x $
+\label{lem:pred}
+\end{lemma}
+
+\begin{lemma}
+~\\
+Kdy\v{z} $  \textsf{M} $ je transitivn\'{i} tak relace $\in$ je extension\'{a}ln\'{i} na  $  \textsf{M} $ \\
+\textbf{D\r{u}kaz \\ }
+Pou\v{z}it\'{i}m lemma \ref{lem:pred} na obm\v{e}nu definice \ref{def:pred} dost\'{a}\'{a}me pro transitivn\'{i} mno\v{z}iny podm\'{i}nku
+\[ \forall x,y \in A(x = y \rightarrow x=y) \]
+\end{lemma}
+
+\begin{lemma}
+~\\
+Kdy\v{z} $ M \subset  \mathbb{WF} $ pak spl\v{n}nuje axiom fundovanosti.\\
+\textbf{D\r{u}kaz \\ }
+Pro ka\v{z}d\'{e} $ x \in \mathbb{WF} $ plat\'{i} axiom fundovanosti tedy mus\'{i} platit i pro ka\v{z}d\'{e}     $x\in{M}$
+proto\v{z}e $ M \subset  \mathbb{WF} $.
+\end{lemma}
+\begin{definice}
+~\\
+Nazveme seznam formul\'{i} $ \phi_0,...,\phi_{n-1}  $je podmno\v{z}inov\v{e} uzav\v{r}en\'{y} pr\'{a}v\v{e} tehdy kdy\v{z}
+ ka\v{z}d\'{a} podformule libovol\'{e} formule $ \phi_i $ je v seznamu a \v{z}\'{a}dn\'{a} formule neobsahuje univers\'{a}ln\'{i} kvantifik\'{a}tor. 
+\end{definice}
+\begin{lemma}
+~\\
+Nech\v{t} $ \phi_0,...,\phi_{n-1}  $ je podmno\v{z}inov\v{e} uzav\v{r}en\'{y}  seznam formul\'{i} a A,B jsou nepr\'{a}zdn\'{e} t\v{r}\'{i}dy tak,\v{z}e $ A \subset B $ tak nasledujic\'{i} je ekvivaletn\'{i}:\\
+Pro ka\v{z}dou $ \phi_{i}(x_1,...,x_i) $ ze seznamu plat\'{i}:
+\[ \forall x_1,...,x_i \in A (\phi_{t}^\mathrm{A}(x_1,..x_n) \leftrightarrow  \phi_{t}^\mathrm{B}(x_1,..x_n) ) (1) \] 
+Pro ka\v{z}dou existen\v{c}n\'{i} formuli $ \phi_{i}(x_1,...,x_i) $ tvaru $ \exists a \phi_{j}(x_1,...,x_i,a) $ ze seznamu plat\'{i}:
+\[ \forall x_1,...,x_i \in A (\phi_{i}^\mathrm{B}(x_1,..x_n) \rightarrow \exists a \in A \phi_{j}^\mathrm{B}(x_1,..x_n,a) ) (2) \]
+\textbf{D\r{u}kaz \\ }
+Nech\v{t} tedy m\'{a}me n\v{e}jak\'{e} $ x_1,...,x_i \in A  $ a nech\v{t} 
+\[ \forall x_1,...,x_i \in A (\phi_{t}^\mathrm{A}(x_1,..x_n) \leftrightarrow  \phi_{t}^\mathrm{B}(x_1,..x_n) )  \] 
+a p\v{r}edpokl\'{a}dejme
+\[ \phi_{i}^\mathrm{B}(x_1,..x_n)  \]
+z p\v{r}edpokladu pro  $ \phi_{i} $ plat\'{i}
+\[ \phi_{i}^\mathrm{A}(x_1,..x_n)  \]
+to je podle definice a relativizace
+\[ (\exists a \in A) (\phi_{j}^\mathrm{A}(x_1,..x_n,a))  \]
+z p\v{r}edpokladu pro  $ \phi_{j} $ plat\'{i}
+\[ (\exists a \in A) (\phi_{j}^\mathrm{B}(x_1,..x_n,a))  \]
+\newpage
+druhou implikaci dok\'{a}\v{z}eme indukc\'{i} podle slo\v{z}itosti formule \\
+pro v\v{s}echny formule $  \psi_{i} $ bez kvantifikatoru plat\'{i} (1) z lemma \ref{lem:transa}\\
+Nech\v{t} tedy  $  \psi_{i} $ je $ \exists a \psi_{j}(x_1,..x_n,a) $ m\'{a}me n\v{e}jak\'{e} $ x_1,...,x_i \in A  $ \\
+ z definice relativizace 
+\[  (\phi_{i}^\mathrm{A}(x_1,..x_n))  \Leftrightarrow \exists a \in A (\phi_{j}^\mathrm{A}(x_1,..x_n,a)) \]
+z induk\v{c}n\'{i}ho p\v{r}edpokladu 
+\[ \exists a \in A (\phi_{j}^\mathrm{A}(x_1,..x_n,a)) \Leftrightarrow \exists a \in A (\phi_{j}^\mathrm{B}(x_1,..x_n,a)) \]
+z $  A \subset B $ plyne 
+\[ \exists a \in A (\phi_{j}^\mathrm{B}(x_1,..x_n,a)) \Rightarrow \exists a \in B (\phi_{j}^\mathrm{B}(x_1,..x_n,a))
+ \]
+z definice relativizace 
+\[  \exists a \in B (\phi_{j}^\mathrm{B}(x_1,..x_n,a)) \Leftrightarrow   (\phi_{i}^\mathrm{B}(x_1,..x_n))   \]
+implikace 
+\[  (\phi_{i}^\mathrm{B}(x_1,..x_n))  \Rightarrow \exists a \in A (\phi_{j}^\mathrm{B}(x_1,..x_n,a))  \]
+z p\v{r}edpokladu.
+\label{lem:ref}
+\end{lemma}
+\begin{veta}
+~\\
+Principy reflexe
+Nech\v{t} $ \phi_0,...,\phi_{n-1}  $ je seznam formul\'{i} a  m\'{a}me nepr\'{a}zdnou t\v{r}\'{i}du $ \mathbb{T} $ pro ka\v{z}d\'{e}$  \alpha $  $ T_\alpha $ je mno\v{z}ina a plat\'{i}
+\[ \rho < \zeta \rightarrow T_\rho \subset T_\zeta \]
+pro limitn\'{i} $ \zeta $
+\[ T_\zeta=\bigcup_{\rho < \zeta} T_\rho \]
+a
+\[ \mathbb{T}= \bigcup_{\rho \in ON} T_\rho \] 
+tak 
+ $ \forall \alpha (\exists \beta > \alpha) \wedge \bigwedge_{i<n}(\phi_{i}^\mathrm{T_\beta} \Leftrightarrow \phi_{i}^\mathbb{T}) \wedge$  $ \beta $ je limitn\'{i} ordin\'{a}l \\
+\textbf{D\r{u}kaz \\ }
+Nech\v{t} seznam formul\'{i} $ \phi_0,...,\phi_{n-1}  $ je podmno\v{z}inov\v{e} uzav\v{r}en\'{y},pokud nen\'{i} tak ho roz\v{s}\'{i}\v{r}\'{i}me tak aby byl.\\
+Pro ka\v{z}d\'{e} i= 1,..,n-1 tak \v{z}e $ \phi_i $ je $ \exists x \phi_j(x,y_1,..,y_l) $
+\[ G_i:\mathbb{T}^n \rightarrow ON \]
+takto:\\
+Kdy\v{z}  $ \neg \exists x \in \mathbb{T} \phi_j^\mathrm{T}(x,y_1,..,y_l)  $
+\[ G_i(y_1,..,y_l)=0 \]
+Pro $ \exists x \in \mathbb{T} \phi_j^\mathrm{T}(x,y_1,..,y_l) $
+\[ G_i(y_1,..,y_l)=\alpha \]
+tak, \v{z}e $ \alpha $ je nejmen\v{s}\'{i} takov\'{e}
+\[  \exists x \in {T_\alpha}  \phi_j^\mathrm{T}(x,y_1,..,y_l)  \]
+Te\v{d} definujme 
+\[ G_i:ON \rightarrow ON \]
+Kdy\v{z} $ \phi_i $ neni $ \exists x \phi_j(x,y_1,..,y_l)$
+\[ F_i(\alpha)=0 \]
+Kdy\v{z} $ \phi_i $ je $ \exists x \phi_j(x,y_1,..,y_l)$
+\[ F_i(\alpha)=sup\{ G_i(y_1,..,y_l):y_1,..,y_l \in T_\alpha \}\]
+a z toho te\v{d} definujme
+\[ K (\alpha)=max( \{F_i(\alpha): i < n\} \cup (\alpha + 1)) \]
+Nech\v{t} tedy m\'{a}me $ \alpha $ dan\'{e} uk\'{a}\v{z}eme si jak zkonstruovat $ \beta > \alpha $, tak \v{z}e
+\[ T_\beta \neq \emptyset \]
+ a spl\v{n}uje lemma \ref{lem:ref} pro $ T_\beta $ a $ \mathbb{T} $ \\
+ Tak nech\v{t} $ \gamma_0 $ nejmen\v{s}\'{i} $ \gamma > \alpha $ tak \v{z}e $ T_\gamma \neq \emptyset   $ \\
+ Rekurz\'{i} pak zkonstruuem: \\
+\[  \gamma_{n+1}=K(\gamma_n) \]
+z konstrukce plyne
+\[ \beta < \gamma_0 < \gamma_1 < ..... \]
+a pak definujme
+\[ \beta=sup\{\gamma_k: k \in \omega \} \]
+\end{veta}
+\begin{lemma}
+~\\
+P\v{r}edpokl\'{a}dejme, \v{z}e pro libovolnou formuli $ \phi(x,y,A,a_1,..,a_n)$ a libovoln\'{e} $  A,a_1,..,a_n \in M $ \\
+Kdy\v{z} plat\'{i} 
+\[ ((\forall x\in A) (\exists!y\in M) \phi^\mathrm{M}(x,y,A,a_1,..,a_n)) \Rightarrow \]\[ \Rightarrow((\exists Y \in M)(\{y:(\exists x \in A)  \phi^\mathrm{M}(x,y,A,a_1,..,a_n) \} \subset Y) \]
+tak sch\'{e}ma nahra\v{z}en\'{i} plat\'{i} v M.\\
+\textbf{D\r{u}kaz \\ }
+\[(\forall x,y,z \in M)(F(x,y) \wedge F(x,z) \rightarrow z=y)\Rightarrow \]\[ \Rightarrow ((\forall x\in A) (\exists!y\in M) \phi^\mathrm{M}(x,y,A,a_1,..,a_n)) \]
+kde $ \phi^\mathrm{M}(x,y,A,a_1,..,a_n)) $ je formule definuj\'{i}c\'{i} funkci tak, \v{z}e A=dom(F) pak pro libovoln\'{e} $ x \in A $ existuje y tvaru y=f(x) a z p\v{r}edpokladu m\r{u}\v{z}e existovat pr\'{a}v\v{e} jedno y.  
+\[ ((\exists Y \in M)(\{y:(\exists x \in A)  \phi^\mathrm{M}(x,y,A,a_1,..,a_n) \} \subset Y) \Rightarrow \]\[\Rightarrow
+((\exists Y \in M)(\{y:(\exists x \in dom(F)) y=F(x)  \} \subset Y)
+ \Rightarrow \]\[\Rightarrow ((\exists Y \in M)(\forall y \in M)((y \in Y) \leftrightarrow ((\exists x \in M)(x \in A \wedge F(x,y)))\]  
+Y  je tedy $ \{y:(\exists x \in dom(F)) y=F(x)  \} $
+\end{lemma}
+\begin{lemma}
+\[ L_\alpha \in L_{\alpha +1} \]
+\textbf{D\r{u}kaz \\ }
+\[ L_\alpha=\{x \in L_\alpha: (x=x)^\mathrm{L_\alpha}\}  \]
+co\v{z} podle lemma \ref{lem:def} znamen\'{a}
+\[ L_\alpha \in \mathfrak{DP}(L_\alpha) = L_{\alpha +1} \]
+\end{lemma}
+\begin{definice}~\\
+Kdy\v{z} $ x  \in  \mathbb{L}, \rho(x) $ je $ \mathbb{L} $-rank roven nejmen\v{s}\'{i}mu $  \beta $ tak,\v{z}e
+$  x \in L_{\beta +1}  $ 
+\end{definice}
+\newpage
+\begin{lemma}
+x je ordin\'{a}l je $\Delta$-0 formule \\
+\textbf{D\r{u}kaz \\ }
+x je ordin\'{a}l $ \Leftrightarrow  $((x je transitivn\'{i} mno\v{z}ina)  $ \wedge $ (x je tot\'{a}ln\v{e} uspo\v{r}\'{a}dan\'{a }$  \in$ ))\\
+(x je transitivn\'{i} mno\v{z}ina) $ \Leftrightarrow  (\forall v \in x \forall z \in v (z \in x))$\\
+(x je tot\'{a}ln\v{e} uspo\v{r}\'{a}dan\'{a }$  \in) \Leftrightarrow  ((\forall y \in x)(\forall z \in x)(y \in z \vee y=z \vee z\in y )) $
+\end{lemma}
+\begin{lemma}
+\[ (\forall \alpha \in ON)(\alpha \in  L_{\alpha+1}) \]
+\textbf{D\r{u}kaz \\ }
+Transfinit\'{i} indukc\'{i}: \\
+\underline{$ \alpha = \emptyset  $} \\
+Pr\r{u}nik dvou pr\'{a}zdn\'{y}ch mno\v{z}in je pr\'{a}zdn\'{a}  mno\v{z}ina.\\
+\underline{$ \alpha$ je limitn\'{i} }\\
+Pokud plat\'{i} pro v\v{s}echny $ \beta < \alpha $ tak plat\'{i} i pro $ \alpha  $ proto\v{z}e sjednocen\'{i} ordin\'{a}l\r{u} men\v{s}\'{i}ch jak $  \alpha $, pro limitn\'{i} ordin\'{a}l $ \alpha $,  je  ordin\'{a}l $ \alpha $. \\
+\underline{$ \alpha=\beta +1$ }\\
+Pokud plat\'{i} pro v\v{s}echny $ \beta < \alpha $ \\
+Vzhledem k tomu \v{z} e $ L_\beta $ je transitivn\'{i} mno\v{z}ina je formule x je ordin\'{a}l je absolutn\'{i}
+a tedy definujme 
+\[ \beta = L_\beta \cap ON = \{x \in L_\beta : (x \in ON)^\mathrm{L_\beta}  \} \]
+co\v{z} podle lemma \ref{def:defi} je 
+\[ \beta \in L_\alpha \]
+\end{lemma}
+% 
 %
 \clearpage\fancyhead[R]{\slshape\nouppercase{\leftmark}} %redefinice chování záhlaví pro stránky s literaturou, pøíp. s rejstøíkem
 \begin{thebibliography}{Gam06}
